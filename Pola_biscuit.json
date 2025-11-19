@@ -4003,7 +4003,7 @@
                 "value": "DebuggerTools::ConsoleLog"
               },
               "parameters": [
-                "previous_biskuit_animation",
+                "pervious_biskuit_animation_number",
                 "\"info\"",
                 ""
               ]
@@ -4878,6 +4878,36 @@
                 "selanjutnya",
                 "True",
                 ""
+              ]
+            }
+          ],
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "NumberObjectVariable"
+                  },
+                  "parameters": [
+                    "biskuit",
+                    "id",
+                    "=",
+                    "biskuit_counter -1"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "SetNumberVariable"
+                  },
+                  "parameters": [
+                    "pervious_biskuit_animation_number",
+                    "=",
+                    "biskuit.Animation::Index()"
+                  ]
+                }
               ]
             }
           ]
