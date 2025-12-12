@@ -1,9 +1,9 @@
 {
   "firstLayout": "",
   "gdVersion": {
-    "build": 246,
+    "build": 250,
     "major": 5,
-    "minor": 5,
+    "minor": 6,
     "revision": 0
   },
   "properties": {
@@ -1724,7 +1724,7 @@
         "gridColor": 10401023,
         "gridAlpha": 0.8,
         "snap": false,
-        "zoomFactor": 0.6040838749988936,
+        "zoomFactor": 0.8700232859857396,
         "windowMask": false,
         "selectedLayer": ""
       },
@@ -1814,8 +1814,8 @@
         },
         {
           "name": "is_setting_show",
-          "type": "number",
-          "value": 0
+          "type": "boolean",
+          "value": false
         }
       ],
       "instances": [
@@ -5292,25 +5292,43 @@
               "parameters": []
             }
           ],
-          "actions": [
+          "actions": [],
+          "events": [
             {
-              "type": {
-                "value": "ActivateBehavior"
-              },
-              "parameters": [
-                "confirm_button",
-                "ButtonFSM",
-                "yes"
-              ]
-            },
-            {
-              "type": {
-                "value": "ActivateBehavior"
-              },
-              "parameters": [
-                "confirm_button",
-                "ButtonScaleTween",
-                "yes"
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "BooleanVariable"
+                  },
+                  "parameters": [
+                    "is_setting_show",
+                    "=",
+                    ""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ActivateBehavior"
+                  },
+                  "parameters": [
+                    "confirm_button",
+                    "ButtonScaleTween",
+                    "yes"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ActivateBehavior"
+                  },
+                  "parameters": [
+                    "confirm_button",
+                    "ButtonFSM",
+                    "yes"
+                  ]
+                }
               ]
             }
           ]
@@ -5343,6 +5361,7 @@
           ],
           "events": [
             {
+              "folded": true,
               "type": "BuiltinCommonInstructions::Standard",
               "conditions": [
                 {
@@ -6669,25 +6688,43 @@
                   ]
                 }
               ],
-              "actions": [
+              "actions": [],
+              "events": [
                 {
-                  "type": {
-                    "value": "ActivateBehavior"
-                  },
-                  "parameters": [
-                    "confirm_button",
-                    "ButtonScaleTween",
-                    ""
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "ActivateBehavior"
-                  },
-                  "parameters": [
-                    "confirm_button",
-                    "ButtonFSM",
-                    ""
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "value": "BooleanVariable"
+                      },
+                      "parameters": [
+                        "is_setting_show",
+                        "=",
+                        ""
+                      ]
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "ActivateBehavior"
+                      },
+                      "parameters": [
+                        "confirm_button",
+                        "ButtonScaleTween",
+                        ""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "ActivateBehavior"
+                      },
+                      "parameters": [
+                        "confirm_button",
+                        "ButtonFSM",
+                        ""
+                      ]
+                    }
                   ]
                 }
               ]
@@ -6820,15 +6857,34 @@
                 "lihat_kembali_button",
                 ""
               ]
-            },
+            }
+          ],
+          "events": [
             {
-              "type": {
-                "value": "ActivateBehavior"
-              },
-              "parameters": [
-                "lihat_kembali_button",
-                "ButtonFSM",
-                "yes"
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "BooleanVariable"
+                  },
+                  "parameters": [
+                    "is_setting_show",
+                    "=",
+                    ""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ActivateBehavior"
+                  },
+                  "parameters": [
+                    "lihat_kembali_button",
+                    "ButtonFSM",
+                    "yes"
+                  ]
+                }
               ]
             }
           ]
@@ -7889,25 +7945,43 @@
                       ]
                     }
                   ],
-                  "actions": [
+                  "actions": [],
+                  "events": [
                     {
-                      "type": {
-                        "value": "ActivateBehavior"
-                      },
-                      "parameters": [
-                        "melanjutkan_button",
-                        "ButtonFSM",
-                        "yes"
-                      ]
-                    },
-                    {
-                      "type": {
-                        "value": "ActivateBehavior"
-                      },
-                      "parameters": [
-                        "confirm_button",
-                        "ButtonFSM",
-                        "yes"
+                      "type": "BuiltinCommonInstructions::Standard",
+                      "conditions": [
+                        {
+                          "type": {
+                            "value": "BooleanVariable"
+                          },
+                          "parameters": [
+                            "is_setting_show",
+                            "=",
+                            ""
+                          ]
+                        }
+                      ],
+                      "actions": [
+                        {
+                          "type": {
+                            "value": "ActivateBehavior"
+                          },
+                          "parameters": [
+                            "confirm_button",
+                            "ButtonFSM",
+                            "yes"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "ActivateBehavior"
+                          },
+                          "parameters": [
+                            "melanjutkan_button",
+                            "ButtonFSM",
+                            "yes"
+                          ]
+                        }
                       ]
                     }
                   ]
@@ -8776,6 +8850,16 @@
                 "ButtonFSM",
                 ""
               ]
+            },
+            {
+              "type": {
+                "value": "SetBooleanVariable"
+              },
+              "parameters": [
+                "is_setting_show",
+                "True",
+                ""
+              ]
             }
           ]
         },
@@ -8942,6 +9026,16 @@
                 "\"blur\"",
                 ""
               ]
+            },
+            {
+              "type": {
+                "value": "SetBooleanVariable"
+              },
+              "parameters": [
+                "is_setting_show",
+                "False",
+                ""
+              ]
             }
           ]
         },
@@ -9008,6 +9102,11 @@
               ]
             }
           ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [],
+          "actions": []
         }
       ]
     }
