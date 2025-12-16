@@ -624,6 +624,26 @@
         "preloadAsSound": false,
         "preloadInCache": false,
         "userAdded": false
+      },
+      {
+        "file": "sound/SFX/geser volume di pengaturan - pola biskuit.wav",
+        "kind": "audio",
+        "metadata": "",
+        "name": "sound\\SFX\\geser volume di pengaturan - pola biskuit.wav",
+        "preloadAsMusic": false,
+        "preloadAsSound": false,
+        "preloadInCache": false,
+        "userAdded": false
+      },
+      {
+        "file": "sound/SFX/jawaban benar - pola biskuit.wav",
+        "kind": "audio",
+        "metadata": "",
+        "name": "sound\\SFX\\jawaban benar - pola biskuit.wav",
+        "preloadAsMusic": false,
+        "preloadAsSound": false,
+        "preloadInCache": false,
+        "userAdded": false
       }
     ]
   },
@@ -1496,6 +1516,10 @@
     {
       "__REFERENCE_TO_SPLIT_OBJECT": true,
       "referenceTo": "/externalEvents/bg_sound_gameplay"
+    },
+    {
+      "__REFERENCE_TO_SPLIT_OBJECT": true,
+      "referenceTo": "/externalEvents/main_logic_gameplay"
     }
   ],
   "eventsFunctionsExtensions": [
