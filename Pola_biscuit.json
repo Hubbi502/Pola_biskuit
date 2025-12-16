@@ -594,6 +594,36 @@
         "preloadAsSound": false,
         "preloadInCache": false,
         "userAdded": false
+      },
+      {
+        "file": "sound/SFX/toples isi cookies ditutup - pola biskuit.wav",
+        "kind": "audio",
+        "metadata": "",
+        "name": "sound\\SFX\\toples isi cookies ditutup - pola biskuit.wav",
+        "preloadAsMusic": false,
+        "preloadAsSound": false,
+        "preloadInCache": false,
+        "userAdded": false
+      },
+      {
+        "file": "sound/SFX/pencet jawaban _sama_ - pola biskuit.wav",
+        "kind": "audio",
+        "metadata": "",
+        "name": "sound\\SFX\\pencet jawaban _sama_ - pola biskuit.wav",
+        "preloadAsMusic": false,
+        "preloadAsSound": false,
+        "preloadInCache": false,
+        "userAdded": false
+      },
+      {
+        "file": "sound/SFX/pencet jawaban _tidak sama_ - pola biskuit.wav",
+        "kind": "audio",
+        "metadata": "",
+        "name": "sound\\SFX\\pencet jawaban _tidak sama_ - pola biskuit.wav",
+        "preloadAsMusic": false,
+        "preloadAsSound": false,
+        "preloadInCache": false,
+        "userAdded": false
       }
     ]
   },
@@ -1453,15 +1483,19 @@
     },
     {
       "__REFERENCE_TO_SPLIT_OBJECT": true,
-      "referenceTo": "/externalEvents/bg_sound_menu"
+      "referenceTo": "/externalEvents/bg_music_menu"
     },
     {
       "__REFERENCE_TO_SPLIT_OBJECT": true,
-      "referenceTo": "/externalEvents/bg_sound_gameplay"
+      "referenceTo": "/externalEvents/bg_music_gameplay"
     },
     {
       "__REFERENCE_TO_SPLIT_OBJECT": true,
       "referenceTo": "/externalEvents/kredit"
+    },
+    {
+      "__REFERENCE_TO_SPLIT_OBJECT": true,
+      "referenceTo": "/externalEvents/bg_sound_gameplay"
     }
   ],
   "eventsFunctionsExtensions": [

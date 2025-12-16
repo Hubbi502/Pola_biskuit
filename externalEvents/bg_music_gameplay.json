@@ -1,6 +1,6 @@
 {
-  "associatedLayout": "main_title",
-  "name": "bg_sound_menu",
+  "associatedLayout": "level_1_gameplay",
+  "name": "bg_music_gameplay",
   "events": [
     {
       "type": "BuiltinCommonInstructions::Standard",
@@ -21,7 +21,7 @@
           },
           "parameters": [
             "",
-            "1"
+            "0"
           ]
         },
         {
@@ -30,8 +30,8 @@
           },
           "parameters": [
             "",
-            "sound\\BGM\\bgm main menu - pola biskuit.wav",
-            "0",
+            "sound\\BGM\\bgm main gameplay - pola biskuit.wav",
+            "1",
             "yes",
             "setting.music",
             "1"
@@ -49,7 +49,7 @@
           },
           "parameters": [
             "",
-            "0",
+            "1",
             "=",
             "setting.music"
           ]

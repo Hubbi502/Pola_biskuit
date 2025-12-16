@@ -20,7 +20,7 @@
     "gridColor": 10401023,
     "gridAlpha": 0.8,
     "snap": false,
-    "zoomFactor": 0.4481978045410417,
+    "zoomFactor": 0.4335774304702433,
     "windowMask": false,
     "selectedLayer": ""
   },
@@ -5217,6 +5217,16 @@
                 "\"loading_scene\"",
                 ""
               ]
+            },
+            {
+              "type": {
+                "value": "SetStringVariable"
+              },
+              "parameters": [
+                "loading_scene",
+                "=",
+                "\"level_3_gameplay\""
+              ]
             }
           ]
         }
@@ -6088,6 +6098,13 @@
         "includeConfig": 0
       },
       "target": "bg_sound_gameplay"
+    },
+    {
+      "type": "BuiltinCommonInstructions::Link",
+      "include": {
+        "includeConfig": 0
+      },
+      "target": "bg_music_gameplay"
     }
   ],
   "layers": [

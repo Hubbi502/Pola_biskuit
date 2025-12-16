@@ -7,9 +7,11 @@
       "conditions": [
         {
           "type": {
-            "value": "DepartScene"
+            "value": "ButtonStates::ButtonFSM::IsClicked"
           },
           "parameters": [
+            "melanjutkan_button",
+            "ButtonFSM",
             ""
           ]
         }
@@ -17,23 +19,14 @@
       "actions": [
         {
           "type": {
-            "value": "StopMusicCanal"
+            "value": "PlaySoundCanal"
           },
           "parameters": [
             "",
-            "0"
-          ]
-        },
-        {
-          "type": {
-            "value": "PlayMusicCanal"
-          },
-          "parameters": [
-            "",
-            "sound\\BGM\\bgm main gameplay - pola biskuit.wav",
+            "sound\\SFX\\button ok di setting & credit- pola biskuit.wav",
             "1",
-            "yes",
-            "setting.music",
+            "",
+            "setting.sound",
             "1"
           ]
         }
@@ -41,20 +34,213 @@
     },
     {
       "type": "BuiltinCommonInstructions::Standard",
-      "conditions": [],
+      "conditions": [
+        {
+          "type": {
+            "value": "BuiltinCommonInstructions::Or"
+          },
+          "parameters": [],
+          "subInstructions": [
+            {
+              "type": {
+                "value": "Tween::IsPlaying"
+              },
+              "parameters": [
+                "tutup_toples",
+                "Tween",
+                "\"go close\""
+              ]
+            },
+            {
+              "type": {
+                "value": "Tween::IsPlaying"
+              },
+              "parameters": [
+                "tutup_toples",
+                "Tween",
+                "\"go close 2\""
+              ]
+            },
+            {
+              "type": {
+                "value": "Tween::IsPlaying"
+              },
+              "parameters": [
+                "tutup_toples_salah",
+                "Tween",
+                "\"go close\""
+              ]
+            },
+            {
+              "type": {
+                "value": "Tween::IsPlaying"
+              },
+              "parameters": [
+                "tutup_toples_salah",
+                "Tween",
+                "\"go close 2\""
+              ]
+            },
+            {
+              "type": {
+                "value": "Tween::IsPlaying"
+              },
+              "parameters": [
+                "tutup_toples",
+                "Tween",
+                "\"go open\""
+              ]
+            },
+            {
+              "type": {
+                "value": "Tween::IsPlaying"
+              },
+              "parameters": [
+                "tutup_toples",
+                "Tween",
+                "\"go open 2\""
+              ]
+            },
+            {
+              "type": {
+                "value": "Tween::IsPlaying"
+              },
+              "parameters": [
+                "tutup_toples_salah",
+                "Tween",
+                "\"go open\""
+              ]
+            },
+            {
+              "type": {
+                "value": "Tween::IsPlaying"
+              },
+              "parameters": [
+                "tutup_toples_salah",
+                "Tween",
+                "\"go open 2\""
+              ]
+            }
+          ]
+        },
+        {
+          "type": {
+            "value": "BuiltinCommonInstructions::Once"
+          },
+          "parameters": []
+        }
+      ],
       "actions": [
         {
           "type": {
-            "value": "ModVolumeMusicCanal"
+            "value": "PlaySoundCanal"
           },
           "parameters": [
             "",
+            "sound\\SFX\\toples isi cookies ditutup - pola biskuit.wav",
             "1",
-            "=",
-            "setting.music"
+            "",
+            "setting.sound",
+            "1"
           ]
         }
       ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": {
+            "value": "ButtonStates::ButtonFSM::IsClicked"
+          },
+          "parameters": [
+            "confirm_button",
+            "ButtonFSM",
+            ""
+          ]
+        }
+      ],
+      "actions": [],
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "AnimatableCapability::AnimatableBehavior::Name"
+              },
+              "parameters": [
+                "confirm_button",
+                "Animation",
+                "=",
+                "\"sama\""
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "PlaySoundCanal"
+              },
+              "parameters": [
+                "",
+                "sound\\SFX\\pencet jawaban _sama_ - pola biskuit.wav",
+                "1",
+                "",
+                "setting.sound",
+                "1"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "AnimatableCapability::AnimatableBehavior::Name"
+              },
+              "parameters": [
+                "confirm_button",
+                "Animation",
+                "=",
+                "\"tidak_sama\""
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "PlaySoundCanal"
+              },
+              "parameters": [
+                "",
+                "sound\\SFX\\pencet jawaban _tidak sama_ - pola biskuit.wav",
+                "1",
+                "",
+                "setting.sound",
+                "1"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": {
+            "value": "ButtonStates::ButtonFSM::IsClicked"
+          },
+          "parameters": [
+            "melanjutkan_button",
+            "ButtonFSM",
+            ""
+          ]
+        }
+      ],
+      "actions": []
     }
   ]
 }

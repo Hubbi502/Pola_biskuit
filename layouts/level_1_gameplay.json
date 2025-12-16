@@ -5265,6 +5265,16 @@
                 "\"loading_scene\"",
                 ""
               ]
+            },
+            {
+              "type": {
+                "value": "SetStringVariable"
+              },
+              "parameters": [
+                "loading_scene",
+                "=",
+                "\"level_2_gameplay\""
+              ]
             }
           ]
         }
@@ -6129,6 +6139,13 @@
           ]
         }
       ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Link",
+      "include": {
+        "includeConfig": 0
+      },
+      "target": "bg_music_gameplay"
     },
     {
       "type": "BuiltinCommonInstructions::Link",
