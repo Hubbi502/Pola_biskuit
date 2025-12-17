@@ -20,7 +20,7 @@
     "gridColor": 10401023,
     "gridAlpha": 0.8,
     "snap": false,
-    "zoomFactor": 0.46331118245140396,
+    "zoomFactor": 1.2121641972173827,
     "windowMask": false,
     "selectedLayer": ""
   },
@@ -94,14 +94,9 @@
       "value": 0
     },
     {
-      "name": "menit",
-      "type": "number",
-      "value": 3
-    },
-    {
       "name": "detik",
       "type": "number",
-      "value": 0
+      "value": 90
     },
     {
       "name": "is_previos_biscuit_button_show",
@@ -110,11 +105,6 @@
     },
     {
       "name": "is_setting_show",
-      "type": "boolean",
-      "value": false
-    },
-    {
-      "name": "is_during_look_back",
       "type": "boolean",
       "value": false
     }
@@ -518,48 +508,17 @@
     },
     {
       "angle": 0,
-      "customSize": false,
-      "height": 0,
+      "customSize": true,
+      "depth": 1,
+      "height": 55,
       "keepRatio": true,
       "layer": "",
       "name": "menit_text",
-      "persistentUuid": "2a18637e-9b67-4b46-9816-28a971a620a9",
-      "width": 0,
-      "x": 569,
-      "y": 12,
+      "persistentUuid": "ce010fd0-7d37-42a2-966f-5e5511805764",
+      "width": 171,
+      "x": 979,
+      "y": 221,
       "zOrder": 57,
-      "numberProperties": [],
-      "stringProperties": [],
-      "initialVariables": []
-    },
-    {
-      "angle": 0,
-      "customSize": false,
-      "height": 0,
-      "keepRatio": true,
-      "layer": "",
-      "name": "titik_dua",
-      "persistentUuid": "35343af0-99de-407c-b948-daa619045e43",
-      "width": 0,
-      "x": 618,
-      "y": 10,
-      "zOrder": 58,
-      "numberProperties": [],
-      "stringProperties": [],
-      "initialVariables": []
-    },
-    {
-      "angle": 0,
-      "customSize": false,
-      "height": 0,
-      "keepRatio": true,
-      "layer": "",
-      "name": "detik_text",
-      "persistentUuid": "5b122be2-f52e-4b04-b756-f371d1941956",
-      "width": 0,
-      "x": 639,
-      "y": 11,
-      "zOrder": 59,
       "numberProperties": [],
       "stringProperties": [],
       "initialVariables": []
@@ -2247,8 +2206,8 @@
       "behaviors": [],
       "string": "00",
       "font": "assets\\Tilt_Warp\\TiltWarp-Regular-VariableFont_XROT,YROT.ttf",
-      "textAlignment": "left",
-      "characterSize": 32,
+      "textAlignment": "center",
+      "characterSize": 50,
       "color": {
         "b": 255,
         "g": 255,
@@ -2270,9 +2229,9 @@
         "underlined": false,
         "text": "00",
         "font": "assets\\Tilt_Warp\\TiltWarp-Regular-VariableFont_XROT,YROT.ttf",
-        "textAlignment": "left",
-        "verticalTextAlignment": "top",
-        "characterSize": 32,
+        "textAlignment": "center",
+        "verticalTextAlignment": "center",
+        "characterSize": 50,
         "lineHeight": 0,
         "color": "255;255;255"
       }
@@ -3071,10 +3030,6 @@
     {
       "name": "Flippable",
       "type": "FlippableCapability::FlippableBehavior"
-    },
-    {
-      "name": "Object3D",
-      "type": "Scene3D::Base3DBehavior"
     },
     {
       "name": "Opacity",

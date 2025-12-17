@@ -644,6 +644,46 @@
         "preloadAsSound": false,
         "preloadInCache": false,
         "userAdded": false
+      },
+      {
+        "file": "assets/bg_show_title.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "assets\\bg_show_title.png",
+        "smoothed": true,
+        "userAdded": false
+      },
+      {
+        "file": "assets/nenek_besar.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "assets\\nenek_besar.png",
+        "smoothed": true,
+        "userAdded": false
+      },
+      {
+        "file": "assets/level_text/Frame 20.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "assets\\level_text\\Frame 20.png",
+        "smoothed": true,
+        "userAdded": false
+      },
+      {
+        "file": "assets/level_text/Frame 21.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "assets\\level_text\\Frame 21.png",
+        "smoothed": true,
+        "userAdded": false
+      },
+      {
+        "file": "assets/level_text/Frame 22.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "assets\\level_text\\Frame 22.png",
+        "smoothed": true,
+        "userAdded": false
       }
     ]
   },
@@ -1472,12 +1512,26 @@
       "name": "loading_scene",
       "type": "string",
       "value": ""
+    },
+    {
+      "name": "current_scene",
+      "type": "number",
+      "value": 1
+    },
+    {
+      "name": "scene_after_show_title",
+      "type": "number",
+      "value": 0
     }
   ],
   "layouts": [
     {
       "__REFERENCE_TO_SPLIT_OBJECT": true,
       "referenceTo": "/layouts/main_title"
+    },
+    {
+      "__REFERENCE_TO_SPLIT_OBJECT": true,
+      "referenceTo": "/layouts/show_title_scene"
     },
     {
       "__REFERENCE_TO_SPLIT_OBJECT": true,
@@ -1542,6 +1596,14 @@
     {
       "__REFERENCE_TO_SPLIT_OBJECT": true,
       "referenceTo": "/eventsFunctionsExtensions/sway"
+    },
+    {
+      "__REFERENCE_TO_SPLIT_OBJECT": true,
+      "referenceTo": "/eventsFunctionsExtensions/ellipsemovement"
+    },
+    {
+      "__REFERENCE_TO_SPLIT_OBJECT": true,
+      "referenceTo": "/eventsFunctionsExtensions/timeformatter"
     }
   ],
   "externalLayouts": [

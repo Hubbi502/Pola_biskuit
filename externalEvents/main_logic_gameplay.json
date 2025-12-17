@@ -423,7 +423,6 @@
       ]
     },
     {
-      "folded": true,
       "type": "BuiltinCommonInstructions::Standard",
       "conditions": [
         {
@@ -670,7 +669,6 @@
       ]
     },
     {
-      "folded": true,
       "type": "BuiltinCommonInstructions::Standard",
       "conditions": [
         {
@@ -865,7 +863,6 @@
       ]
     },
     {
-      "folded": true,
       "type": "BuiltinCommonInstructions::Standard",
       "conditions": [
         {
@@ -922,7 +919,6 @@
       ]
     },
     {
-      "folded": true,
       "type": "BuiltinCommonInstructions::Standard",
       "conditions": [
         {
@@ -980,46 +976,60 @@
               ]
             }
           ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "Visible"
+              },
+              "parameters": [
+                "lihat_kembali_text"
+              ]
+            },
+            {
+              "type": {
+                "value": "BuiltinCommonInstructions::Once"
+              },
+              "parameters": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "ActivateBehavior"
+              },
+              "parameters": [
+                "lihat_kembali_button",
+                "ButtonFSM",
+                "yes"
+              ]
+            }
+          ]
         }
       ]
     },
     {
-      "type": "BuiltinCommonInstructions::Standard",
-      "conditions": [
-        {
-          "type": {
-            "value": "ButtonStates::ButtonFSM::IsClicked"
-          },
-          "parameters": [
-            "confirm_button",
-            "ButtonFSM",
-            ""
-          ]
-        }
-      ],
-      "actions": [
-        {
-          "type": {
-            "value": "ActivateBehavior"
-          },
-          "parameters": [
-            "lihat_kembali_button",
-            "ButtonFSM",
-            ""
-          ]
-        }
-      ],
+      "colorB": 228,
+      "colorG": 176,
+      "colorR": 74,
+      "creationTime": 0,
+      "name": "confirm button logic",
+      "source": "",
+      "type": "BuiltinCommonInstructions::Group",
       "events": [
         {
           "type": "BuiltinCommonInstructions::Standard",
           "conditions": [
             {
               "type": {
-                "value": "AjoutObjConcern"
+                "value": "ButtonStates::ButtonFSM::IsClicked"
               },
               "parameters": [
-                "",
-                "confirm_button"
+                "confirm_button",
+                "ButtonFSM",
+                ""
               ]
             }
           ],
@@ -1029,700 +1039,36 @@
                 "value": "ActivateBehavior"
               },
               "parameters": [
-                "confirm_button",
+                "lihat_kembali_button",
                 "ButtonFSM",
                 ""
               ]
             }
-          ]
-        },
-        {
-          "type": "BuiltinCommonInstructions::Standard",
-          "conditions": [
-            {
-              "type": {
-                "value": "NumberObjectVariable"
-              },
-              "parameters": [
-                "biskuit",
-                "id",
-                "=",
-                "biskuit_counter-1"
-              ]
-            }
           ],
-          "actions": [],
           "events": [
             {
               "type": "BuiltinCommonInstructions::Standard",
               "conditions": [
                 {
                   "type": {
-                    "value": "AnimatableCapability::AnimatableBehavior::Name"
+                    "value": "AjoutObjConcern"
                   },
                   "parameters": [
-                    "confirm_button",
-                    "Animation",
-                    "=",
-                    "\"sama\""
+                    "",
+                    "confirm_button"
                   ]
                 }
               ],
-              "actions": [],
-              "events": [
+              "actions": [
                 {
-                  "colorB": 228,
-                  "colorG": 176,
-                  "colorR": 74,
-                  "creationTime": 0,
-                  "name": "benar",
-                  "source": "",
-                  "type": "BuiltinCommonInstructions::Group",
-                  "events": [
-                    {
-                      "type": "BuiltinCommonInstructions::Standard",
-                      "conditions": [
-                        {
-                          "type": {
-                            "value": "BuiltinCommonInstructions::And"
-                          },
-                          "parameters": [],
-                          "subInstructions": [
-                            {
-                              "type": {
-                                "value": "AnimatableCapability::AnimatableBehavior::Name"
-                              },
-                              "parameters": [
-                                "biskuit",
-                                "Animation",
-                                "=",
-                                "previous_biskuit_animation"
-                              ]
-                            },
-                            {
-                              "type": {
-                                "value": "NumberVariable"
-                              },
-                              "parameters": [
-                                "melanjutkan_klik",
-                                "=",
-                                "1"
-                              ]
-                            }
-                          ]
-                        }
-                      ],
-                      "actions": [
-                        {
-                          "type": {
-                            "value": "PlaySoundCanal"
-                          },
-                          "parameters": [
-                            "",
-                            "sound\\SFX\\jawaban benar - pola biskuit.wav",
-                            "1",
-                            "",
-                            "setting.sound",
-                            "1"
-                          ]
-                        },
-                        {
-                          "type": {
-                            "value": "SetNumberObjectVariable"
-                          },
-                          "parameters": [
-                            "biskuit",
-                            "position_state",
-                            "=",
-                            "1"
-                          ]
-                        },
-                        {
-                          "type": {
-                            "value": "DebuggerTools::ConsoleLog"
-                          },
-                          "parameters": [
-                            "\"benar tidak sama\"",
-                            "\"info\"",
-                            ""
-                          ]
-                        },
-                        {
-                          "type": {
-                            "value": "ChangeLayer"
-                          },
-                          "parameters": [
-                            "melanjutkan_button",
-                            "\"benar\""
-                          ]
-                        },
-                        {
-                          "type": {
-                            "value": "Tween::TweenBehavior::AddObjectOpacityTween2"
-                          },
-                          "parameters": [
-                            "correct_layer",
-                            "Tween",
-                            "\"go show\"",
-                            "170",
-                            "\"linear\"",
-                            "0.5",
-                            ""
-                          ]
-                        },
-                        {
-                          "type": {
-                            "value": "Tween::TweenBehavior::AddObjectPositionYTween2"
-                          },
-                          "parameters": [
-                            "melanjutkan_button",
-                            "Tween",
-                            "\"go up 2\"",
-                            "557",
-                            "\"easeOutQuad\"",
-                            "0.2",
-                            ""
-                          ]
-                        },
-                        {
-                          "type": {
-                            "value": "Montre"
-                          },
-                          "parameters": [
-                            "centang",
-                            ""
-                          ]
-                        },
-                        {
-                          "type": {
-                            "value": "Montre"
-                          },
-                          "parameters": [
-                            "benar_text",
-                            ""
-                          ]
-                        },
-                        {
-                          "type": {
-                            "value": "TextContainerCapability::TextContainerBehavior::SetValue"
-                          },
-                          "parameters": [
-                            "benar_text",
-                            "Text",
-                            "=",
-                            "\"Tepat! Kamu ingat biskuit sebelumnya dengan baik!\""
-                          ]
-                        },
-                        {
-                          "type": {
-                            "value": "SetNumberVariable"
-                          },
-                          "parameters": [
-                            "score_var",
-                            "+",
-                            "10"
-                          ]
-                        }
-                      ]
-                    },
-                    {
-                      "type": "BuiltinCommonInstructions::Standard",
-                      "conditions": [
-                        {
-                          "type": {
-                            "value": "BuiltinCommonInstructions::And"
-                          },
-                          "parameters": [],
-                          "subInstructions": [
-                            {
-                              "type": {
-                                "value": "AnimatableCapability::AnimatableBehavior::Name"
-                              },
-                              "parameters": [
-                                "biskuit",
-                                "Animation",
-                                "=",
-                                "previous_biskuit_animation"
-                              ]
-                            },
-                            {
-                              "type": {
-                                "value": "NumberVariable"
-                              },
-                              "parameters": [
-                                "melanjutkan_klik",
-                                "=",
-                                "2"
-                              ]
-                            }
-                          ]
-                        }
-                      ],
-                      "actions": [
-                        {
-                          "type": {
-                            "value": "PlaySoundCanal"
-                          },
-                          "parameters": [
-                            "",
-                            "sound\\SFX\\jawaban benar - pola biskuit.wav",
-                            "1",
-                            "",
-                            "setting.sound",
-                            "1"
-                          ]
-                        },
-                        {
-                          "type": {
-                            "value": "SetNumberObjectVariable"
-                          },
-                          "parameters": [
-                            "biskuit",
-                            "position_state",
-                            "=",
-                            "1"
-                          ]
-                        },
-                        {
-                          "type": {
-                            "value": "SetNumberVariable"
-                          },
-                          "parameters": [
-                            "score_var",
-                            "+",
-                            "10"
-                          ]
-                        }
-                      ],
-                      "events": [
-                        {
-                          "type": "BuiltinCommonInstructions::Standard",
-                          "conditions": [
-                            {
-                              "type": {
-                                "value": "AjoutObjConcern"
-                              },
-                              "parameters": [
-                                "",
-                                "confirm_button"
-                              ]
-                            }
-                          ],
-                          "actions": [
-                            {
-                              "type": {
-                                "value": "Tween::TweenBehavior::AddObjectOpacityTween2"
-                              },
-                              "parameters": [
-                                "confirm_button",
-                                "Tween",
-                                "\"go hide\"",
-                                "0",
-                                "\"linear\"",
-                                "0.5",
-                                ""
-                              ]
-                            },
-                            {
-                              "type": {
-                                "value": "Tween::TweenBehavior::AddObjectAngleTween2"
-                              },
-                              "parameters": [
-                                "tutup_toples",
-                                "Tween",
-                                "\"go open\"",
-                                "60",
-                                "\"linear\"",
-                                "0.2",
-                                ""
-                              ]
-                            },
-                            {
-                              "type": {
-                                "value": "Tween::TweenBehavior::AddObjectPositionTween2"
-                              },
-                              "parameters": [
-                                "tutup_toples",
-                                "Tween",
-                                "\"go open 2\"",
-                                "tutup_toples.X() +75",
-                                "tutup_toples.Y() -75",
-                                "\"linear\"",
-                                "0.2",
-                                ""
-                              ]
-                            },
-                            {
-                              "type": {
-                                "value": "Wait"
-                              },
-                              "parameters": [
-                                "1"
-                              ]
-                            },
-                            {
-                              "type": {
-                                "value": "Tween::TweenBehavior::AddObjectPositionYTween2"
-                              },
-                              "parameters": [
-                                "biskuit",
-                                "Tween",
-                                "\"go down\"",
-                                "720",
-                                "\"linear\"",
-                                "0.5",
-                                ""
-                              ]
-                            },
-                            {
-                              "type": {
-                                "value": "Tween::TweenBehavior::AddObjectScaleTween3"
-                              },
-                              "parameters": [
-                                "biskuit",
-                                "Tween",
-                                "\"go shrink\"",
-                                "0.5",
-                                "\"linear\"",
-                                "0.5",
-                                "",
-                                "yes"
-                              ]
-                            },
-                            {
-                              "type": {
-                                "value": "Wait"
-                              },
-                              "parameters": [
-                                "0.5"
-                              ]
-                            },
-                            {
-                              "type": {
-                                "value": "Tween::TweenBehavior::AddObjectAngleTween2"
-                              },
-                              "parameters": [
-                                "tutup_toples",
-                                "Tween",
-                                "\"go close\"",
-                                "0",
-                                "\"linear\"",
-                                "0.2",
-                                ""
-                              ]
-                            },
-                            {
-                              "type": {
-                                "value": "Tween::TweenBehavior::AddObjectPositionTween2"
-                              },
-                              "parameters": [
-                                "tutup_toples",
-                                "Tween",
-                                "\"go close 2\"",
-                                "tutup_toples.X() -75",
-                                "tutup_toples.Y() +75",
-                                "\"linear\"",
-                                "0.2",
-                                ""
-                              ]
-                            },
-                            {
-                              "type": {
-                                "value": "SetBooleanVariable"
-                              },
-                              "parameters": [
-                                "selanjutnya",
-                                "True",
-                                ""
-                              ]
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  ],
-                  "parameters": []
-                },
-                {
-                  "colorB": 228,
-                  "colorG": 176,
-                  "colorR": 74,
-                  "creationTime": 0,
-                  "name": "salah",
-                  "source": "",
-                  "type": "BuiltinCommonInstructions::Group",
-                  "events": [
-                    {
-                      "type": "BuiltinCommonInstructions::Standard",
-                      "conditions": [
-                        {
-                          "type": {
-                            "value": "AnimatableCapability::AnimatableBehavior::Name"
-                          },
-                          "parameters": [
-                            "biskuit",
-                            "Animation",
-                            "!=",
-                            "previous_biskuit_animation"
-                          ]
-                        }
-                      ],
-                      "actions": [
-                        {
-                          "type": {
-                            "value": "SetNumberObjectVariable"
-                          },
-                          "parameters": [
-                            "biskuit",
-                            "position_state",
-                            "=",
-                            "2"
-                          ]
-                        }
-                      ],
-                      "events": [
-                        {
-                          "type": "BuiltinCommonInstructions::Standard",
-                          "conditions": [
-                            {
-                              "type": {
-                                "value": "NumberVariable"
-                              },
-                              "parameters": [
-                                "score_var",
-                                ">",
-                                "0"
-                              ]
-                            }
-                          ],
-                          "actions": [
-                            {
-                              "type": {
-                                "value": "SetNumberVariable"
-                              },
-                              "parameters": [
-                                "score_var",
-                                "-",
-                                "2"
-                              ]
-                            }
-                          ]
-                        },
-                        {
-                          "type": "BuiltinCommonInstructions::Standard",
-                          "conditions": [],
-                          "actions": [
-                            {
-                              "type": {
-                                "value": "DebuggerTools::ConsoleLog"
-                              },
-                              "parameters": [
-                                "\"salah sama\"",
-                                "\"info\"",
-                                ""
-                              ]
-                            },
-                            {
-                              "type": {
-                                "value": "Tween::TweenBehavior::AddObjectPositionYTween2"
-                              },
-                              "parameters": [
-                                "toples_salah_group",
-                                "Tween",
-                                "\"go up\"",
-                                "toples_salah_group.Y() - 569",
-                                "\"easeOutCubic\"",
-                                "0.5",
-                                ""
-                              ]
-                            },
-                            {
-                              "type": {
-                                "value": "Wait"
-                              },
-                              "parameters": [
-                                "0.5"
-                              ]
-                            },
-                            {
-                              "type": {
-                                "value": "Tween::TweenBehavior::AddObjectAngleTween2"
-                              },
-                              "parameters": [
-                                "tutup_toples_salah",
-                                "Tween",
-                                "\"go open\"",
-                                "60",
-                                "\"linear\"",
-                                "0.2",
-                                ""
-                              ]
-                            },
-                            {
-                              "type": {
-                                "value": "Tween::TweenBehavior::AddObjectPositionTween2"
-                              },
-                              "parameters": [
-                                "tutup_toples_salah",
-                                "Tween",
-                                "\"go open 2\"",
-                                "tutup_toples_salah.X() +75",
-                                "tutup_toples_salah.Y() -75",
-                                "\"linear\"",
-                                "0.2",
-                                ""
-                              ]
-                            },
-                            {
-                              "type": {
-                                "value": "Wait"
-                              },
-                              "parameters": [
-                                "1"
-                              ]
-                            },
-                            {
-                              "type": {
-                                "value": "Tween::TweenBehavior::AddObjectPositionTween2"
-                              },
-                              "parameters": [
-                                "biskuit",
-                                "Tween",
-                                "\"go down\"",
-                                "1010",
-                                "500",
-                                "\"easeInQuad\"",
-                                "0.2",
-                                ""
-                              ]
-                            },
-                            {
-                              "type": {
-                                "value": "Tween::TweenBehavior::AddObjectScaleTween3"
-                              },
-                              "parameters": [
-                                "biskuit",
-                                "Tween",
-                                "\"go shrink\"",
-                                "0.5",
-                                "\"linear\"",
-                                "0.2",
-                                "",
-                                "yes"
-                              ]
-                            },
-                            {
-                              "type": {
-                                "value": "Wait"
-                              },
-                              "parameters": [
-                                "1"
-                              ]
-                            },
-                            {
-                              "type": {
-                                "value": "Tween::TweenBehavior::AddObjectPositionTween2"
-                              },
-                              "parameters": [
-                                "biskuit",
-                                "Tween",
-                                "\"go down\"",
-                                "1010",
-                                "650",
-                                "\"easeInQuad\"",
-                                "0.5",
-                                ""
-                              ]
-                            },
-                            {
-                              "type": {
-                                "value": "Wait"
-                              },
-                              "parameters": [
-                                "0.5"
-                              ]
-                            },
-                            {
-                              "type": {
-                                "value": "Tween::TweenBehavior::AddObjectAngleTween2"
-                              },
-                              "parameters": [
-                                "tutup_toples_salah",
-                                "Tween",
-                                "\"go close\"",
-                                "0",
-                                "\"linear\"",
-                                "0.2",
-                                ""
-                              ]
-                            },
-                            {
-                              "type": {
-                                "value": "Tween::TweenBehavior::AddObjectPositionTween2"
-                              },
-                              "parameters": [
-                                "tutup_toples_salah",
-                                "Tween",
-                                "\"go close 2\"",
-                                "tutup_toples_salah.X() -75",
-                                "tutup_toples_salah.Y() +75",
-                                "\"linear\"",
-                                "0.2",
-                                ""
-                              ]
-                            },
-                            {
-                              "type": {
-                                "value": "Wait"
-                              },
-                              "parameters": [
-                                "1.3"
-                              ]
-                            },
-                            {
-                              "type": {
-                                "value": "Tween::TweenBehavior::AddObjectPositionYTween2"
-                              },
-                              "parameters": [
-                                "biskuit",
-                                "Tween",
-                                "\"go down\"",
-                                "biskuit.Y() + 569",
-                                "\"easeOutCubic\"",
-                                "0.5",
-                                ""
-                              ]
-                            },
-                            {
-                              "type": {
-                                "value": "Tween::TweenBehavior::AddObjectPositionYTween2"
-                              },
-                              "parameters": [
-                                "toples_salah_group",
-                                "Tween",
-                                "\"go down\"",
-                                "toples_salah_group.Y() + 569",
-                                "\"easeOutCubic\"",
-                                "0.5",
-                                ""
-                              ]
-                            },
-                            {
-                              "type": {
-                                "value": "SetNumberVariable"
-                              },
-                              "parameters": [
-                                "jumlah_salah",
-                                "+",
-                                "1"
-                              ]
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  ],
-                  "parameters": []
+                  "type": {
+                    "value": "ActivateBehavior"
+                  },
+                  "parameters": [
+                    "confirm_button",
+                    "ButtonFSM",
+                    ""
+                  ]
                 }
               ]
             },
@@ -1731,637 +1077,131 @@
               "conditions": [
                 {
                   "type": {
-                    "value": "AnimatableCapability::AnimatableBehavior::Name"
+                    "value": "NumberObjectVariable"
                   },
                   "parameters": [
-                    "confirm_button",
-                    "Animation",
+                    "biskuit",
+                    "id",
                     "=",
-                    "\"tidak_sama\""
+                    "biskuit_counter-1"
                   ]
                 }
               ],
               "actions": [],
               "events": [
                 {
-                  "colorB": 228,
-                  "colorG": 176,
-                  "colorR": 74,
-                  "creationTime": 0,
-                  "name": "benar",
-                  "source": "",
-                  "type": "BuiltinCommonInstructions::Group",
-                  "events": [
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
                     {
-                      "type": "BuiltinCommonInstructions::Standard",
-                      "conditions": [
-                        {
-                          "type": {
-                            "value": "BuiltinCommonInstructions::And"
-                          },
-                          "parameters": [],
-                          "subInstructions": [
-                            {
-                              "type": {
-                                "value": "AnimatableCapability::AnimatableBehavior::Name"
-                              },
-                              "parameters": [
-                                "biskuit",
-                                "Animation",
-                                "!=",
-                                "previous_biskuit_animation"
-                              ]
-                            },
-                            {
-                              "type": {
-                                "value": "NumberVariable"
-                              },
-                              "parameters": [
-                                "melanjutkan_klik",
-                                "=",
-                                "1"
-                              ]
-                            }
-                          ]
-                        }
-                      ],
-                      "actions": [
-                        {
-                          "type": {
-                            "value": "PlaySoundCanal"
-                          },
-                          "parameters": [
-                            "",
-                            "sound\\SFX\\jawaban benar - pola biskuit.wav",
-                            "1",
-                            "",
-                            "setting.sound",
-                            "1"
-                          ]
-                        },
-                        {
-                          "type": {
-                            "value": "SetNumberObjectVariable"
-                          },
-                          "parameters": [
-                            "biskuit",
-                            "position_state",
-                            "=",
-                            "1"
-                          ]
-                        },
-                        {
-                          "type": {
-                            "value": "DebuggerTools::ConsoleLog"
-                          },
-                          "parameters": [
-                            "\"benar tidak sama\"",
-                            "\"info\"",
-                            ""
-                          ]
-                        },
-                        {
-                          "type": {
-                            "value": "ChangeLayer"
-                          },
-                          "parameters": [
-                            "melanjutkan_button",
-                            "\"benar\""
-                          ]
-                        },
-                        {
-                          "type": {
-                            "value": "Tween::TweenBehavior::AddObjectOpacityTween2"
-                          },
-                          "parameters": [
-                            "correct_layer",
-                            "Tween",
-                            "\"go show\"",
-                            "170",
-                            "\"linear\"",
-                            "0.5",
-                            ""
-                          ]
-                        },
-                        {
-                          "type": {
-                            "value": "Tween::TweenBehavior::AddObjectPositionYTween2"
-                          },
-                          "parameters": [
-                            "melanjutkan_button",
-                            "Tween",
-                            "\"go up 2\"",
-                            "557",
-                            "\"easeOutQuad\"",
-                            "0.2",
-                            ""
-                          ]
-                        },
-                        {
-                          "type": {
-                            "value": "Montre"
-                          },
-                          "parameters": [
-                            "centang",
-                            ""
-                          ]
-                        },
-                        {
-                          "type": {
-                            "value": "Montre"
-                          },
-                          "parameters": [
-                            "benar_text",
-                            ""
-                          ]
-                        },
-                        {
-                          "type": {
-                            "value": "TextContainerCapability::TextContainerBehavior::SetValue"
-                          },
-                          "parameters": [
-                            "benar_text",
-                            "Text",
-                            "=",
-                            "\"Tepat! Kamu ingat biskuit sebelumnya dengan baik!\""
-                          ]
-                        },
-                        {
-                          "type": {
-                            "value": "SetNumberVariable"
-                          },
-                          "parameters": [
-                            "score_var",
-                            "+",
-                            "10"
-                          ]
-                        }
-                      ]
-                    },
-                    {
-                      "type": "BuiltinCommonInstructions::Standard",
-                      "conditions": [
-                        {
-                          "type": {
-                            "value": "BuiltinCommonInstructions::And"
-                          },
-                          "parameters": [],
-                          "subInstructions": [
-                            {
-                              "type": {
-                                "value": "AnimatableCapability::AnimatableBehavior::Name"
-                              },
-                              "parameters": [
-                                "biskuit",
-                                "Animation",
-                                "!=",
-                                "previous_biskuit_animation"
-                              ]
-                            },
-                            {
-                              "type": {
-                                "value": "NumberVariable"
-                              },
-                              "parameters": [
-                                "melanjutkan_klik",
-                                "=",
-                                "2"
-                              ]
-                            }
-                          ]
-                        }
-                      ],
-                      "actions": [
-                        {
-                          "type": {
-                            "value": "PlaySoundCanal"
-                          },
-                          "parameters": [
-                            "",
-                            "sound\\SFX\\jawaban benar - pola biskuit.wav",
-                            "1",
-                            "",
-                            "setting.sound",
-                            "1"
-                          ]
-                        },
-                        {
-                          "type": {
-                            "value": "SetNumberObjectVariable"
-                          },
-                          "parameters": [
-                            "biskuit",
-                            "position_state",
-                            "=",
-                            "1"
-                          ]
-                        },
-                        {
-                          "type": {
-                            "value": "SetNumberVariable"
-                          },
-                          "parameters": [
-                            "score_var",
-                            "+",
-                            "10"
-                          ]
-                        }
-                      ],
-                      "events": [
-                        {
-                          "type": "BuiltinCommonInstructions::Standard",
-                          "conditions": [
-                            {
-                              "type": {
-                                "value": "AjoutObjConcern"
-                              },
-                              "parameters": [
-                                "",
-                                "confirm_button"
-                              ]
-                            }
-                          ],
-                          "actions": [
-                            {
-                              "type": {
-                                "value": "Tween::TweenBehavior::AddObjectOpacityTween2"
-                              },
-                              "parameters": [
-                                "confirm_button",
-                                "Tween",
-                                "\"go hide\"",
-                                "0",
-                                "\"linear\"",
-                                "0.5",
-                                ""
-                              ]
-                            },
-                            {
-                              "type": {
-                                "value": "Tween::TweenBehavior::AddObjectAngleTween2"
-                              },
-                              "parameters": [
-                                "tutup_toples",
-                                "Tween",
-                                "\"go open\"",
-                                "60",
-                                "\"linear\"",
-                                "0.2",
-                                ""
-                              ]
-                            },
-                            {
-                              "type": {
-                                "value": "Tween::TweenBehavior::AddObjectPositionTween2"
-                              },
-                              "parameters": [
-                                "tutup_toples",
-                                "Tween",
-                                "\"go open 2\"",
-                                "tutup_toples.X() +75",
-                                "tutup_toples.Y() -75",
-                                "\"linear\"",
-                                "0.2",
-                                ""
-                              ]
-                            },
-                            {
-                              "type": {
-                                "value": "Wait"
-                              },
-                              "parameters": [
-                                "1"
-                              ]
-                            },
-                            {
-                              "type": {
-                                "value": "Tween::TweenBehavior::AddObjectPositionYTween2"
-                              },
-                              "parameters": [
-                                "biskuit",
-                                "Tween",
-                                "\"go down\"",
-                                "720",
-                                "\"linear\"",
-                                "0.5",
-                                ""
-                              ]
-                            },
-                            {
-                              "type": {
-                                "value": "Tween::TweenBehavior::AddObjectScaleTween3"
-                              },
-                              "parameters": [
-                                "biskuit",
-                                "Tween",
-                                "\"go shrink\"",
-                                "0.5",
-                                "\"linear\"",
-                                "0.5",
-                                "",
-                                "yes"
-                              ]
-                            },
-                            {
-                              "type": {
-                                "value": "Wait"
-                              },
-                              "parameters": [
-                                "0.5"
-                              ]
-                            },
-                            {
-                              "type": {
-                                "value": "Tween::TweenBehavior::AddObjectAngleTween2"
-                              },
-                              "parameters": [
-                                "tutup_toples",
-                                "Tween",
-                                "\"go close\"",
-                                "0",
-                                "\"linear\"",
-                                "0.2",
-                                ""
-                              ]
-                            },
-                            {
-                              "type": {
-                                "value": "Tween::TweenBehavior::AddObjectPositionTween2"
-                              },
-                              "parameters": [
-                                "tutup_toples",
-                                "Tween",
-                                "\"go close 2\"",
-                                "tutup_toples.X() -75",
-                                "tutup_toples.Y() +75",
-                                "\"linear\"",
-                                "0.2",
-                                ""
-                              ]
-                            },
-                            {
-                              "type": {
-                                "value": "SetBooleanVariable"
-                              },
-                              "parameters": [
-                                "selanjutnya",
-                                "True",
-                                ""
-                              ]
-                            }
-                          ]
-                        }
+                      "type": {
+                        "value": "AnimatableCapability::AnimatableBehavior::Name"
+                      },
+                      "parameters": [
+                        "confirm_button",
+                        "Animation",
+                        "=",
+                        "\"sama\""
                       ]
                     }
                   ],
-                  "parameters": []
-                },
-                {
-                  "colorB": 228,
-                  "colorG": 176,
-                  "colorR": 74,
-                  "creationTime": 0,
-                  "name": "salah",
-                  "source": "",
-                  "type": "BuiltinCommonInstructions::Group",
+                  "actions": [],
                   "events": [
                     {
-                      "type": "BuiltinCommonInstructions::Standard",
-                      "conditions": [
-                        {
-                          "type": {
-                            "value": "AnimatableCapability::AnimatableBehavior::Name"
-                          },
-                          "parameters": [
-                            "biskuit",
-                            "Animation",
-                            "=",
-                            "previous_biskuit_animation"
-                          ]
-                        }
-                      ],
-                      "actions": [
-                        {
-                          "type": {
-                            "value": "SetNumberObjectVariable"
-                          },
-                          "parameters": [
-                            "biskuit",
-                            "position_state",
-                            "=",
-                            "2"
-                          ]
-                        }
-                      ],
+                      "colorB": 228,
+                      "colorG": 176,
+                      "colorR": 74,
+                      "creationTime": 0,
+                      "name": "benar",
+                      "source": "",
+                      "type": "BuiltinCommonInstructions::Group",
                       "events": [
                         {
                           "type": "BuiltinCommonInstructions::Standard",
                           "conditions": [
                             {
                               "type": {
-                                "value": "NumberVariable"
+                                "value": "BuiltinCommonInstructions::And"
                               },
-                              "parameters": [
-                                "score_var",
-                                ">",
-                                "0"
+                              "parameters": [],
+                              "subInstructions": [
+                                {
+                                  "type": {
+                                    "value": "AnimatableCapability::AnimatableBehavior::Name"
+                                  },
+                                  "parameters": [
+                                    "biskuit",
+                                    "Animation",
+                                    "=",
+                                    "previous_biskuit_animation"
+                                  ]
+                                },
+                                {
+                                  "type": {
+                                    "value": "NumberVariable"
+                                  },
+                                  "parameters": [
+                                    "melanjutkan_klik",
+                                    "=",
+                                    "1"
+                                  ]
+                                }
                               ]
                             }
                           ],
                           "actions": [
                             {
                               "type": {
-                                "value": "SetNumberVariable"
+                                "value": "PlaySoundCanal"
                               },
                               "parameters": [
-                                "score_var",
-                                "-",
-                                "2"
+                                "",
+                                "sound\\SFX\\jawaban benar - pola biskuit.wav",
+                                "1",
+                                "",
+                                "setting.sound",
+                                "1"
                               ]
-                            }
-                          ]
-                        },
-                        {
-                          "type": "BuiltinCommonInstructions::Standard",
-                          "conditions": [],
-                          "actions": [
+                            },
+                            {
+                              "type": {
+                                "value": "SetNumberObjectVariable"
+                              },
+                              "parameters": [
+                                "biskuit",
+                                "position_state",
+                                "=",
+                                "1"
+                              ]
+                            },
                             {
                               "type": {
                                 "value": "DebuggerTools::ConsoleLog"
                               },
                               "parameters": [
-                                "\"salah sama\"",
+                                "\"benar tidak sama\"",
                                 "\"info\"",
                                 ""
                               ]
                             },
                             {
                               "type": {
-                                "value": "Tween::TweenBehavior::AddObjectPositionYTween2"
+                                "value": "ChangeLayer"
                               },
                               "parameters": [
-                                "toples_salah_group",
-                                "Tween",
-                                "\"go up\"",
-                                "toples_salah_group.Y() - 569",
-                                "\"easeOutCubic\"",
-                                "0.5",
-                                ""
+                                "melanjutkan_button",
+                                "\"benar\""
                               ]
                             },
                             {
                               "type": {
-                                "value": "Wait"
+                                "value": "Tween::TweenBehavior::AddObjectOpacityTween2"
                               },
                               "parameters": [
-                                "0.5"
-                              ]
-                            },
-                            {
-                              "type": {
-                                "value": "Tween::TweenBehavior::AddObjectAngleTween2"
-                              },
-                              "parameters": [
-                                "tutup_toples_salah",
+                                "correct_layer",
                                 "Tween",
-                                "\"go open\"",
-                                "60",
+                                "\"go show\"",
+                                "170",
                                 "\"linear\"",
-                                "0.2",
-                                ""
-                              ]
-                            },
-                            {
-                              "type": {
-                                "value": "Tween::TweenBehavior::AddObjectPositionTween2"
-                              },
-                              "parameters": [
-                                "tutup_toples_salah",
-                                "Tween",
-                                "\"go open 2\"",
-                                "tutup_toples_salah.X() +75",
-                                "tutup_toples_salah.Y() -75",
-                                "\"linear\"",
-                                "0.2",
-                                ""
-                              ]
-                            },
-                            {
-                              "type": {
-                                "value": "Wait"
-                              },
-                              "parameters": [
-                                "1"
-                              ]
-                            },
-                            {
-                              "type": {
-                                "value": "Tween::TweenBehavior::AddObjectPositionTween2"
-                              },
-                              "parameters": [
-                                "biskuit",
-                                "Tween",
-                                "\"go down\"",
-                                "1010",
-                                "500",
-                                "\"easeInQuad\"",
-                                "0.2",
-                                ""
-                              ]
-                            },
-                            {
-                              "type": {
-                                "value": "Tween::TweenBehavior::AddObjectScaleTween3"
-                              },
-                              "parameters": [
-                                "biskuit",
-                                "Tween",
-                                "\"go shrink\"",
-                                "0.5",
-                                "\"linear\"",
-                                "0.2",
-                                "",
-                                "yes"
-                              ]
-                            },
-                            {
-                              "type": {
-                                "value": "Wait"
-                              },
-                              "parameters": [
-                                "1"
-                              ]
-                            },
-                            {
-                              "type": {
-                                "value": "Tween::TweenBehavior::AddObjectPositionTween2"
-                              },
-                              "parameters": [
-                                "biskuit",
-                                "Tween",
-                                "\"go down\"",
-                                "1010",
-                                "650",
-                                "\"easeInQuad\"",
-                                "0.5",
-                                ""
-                              ]
-                            },
-                            {
-                              "type": {
-                                "value": "Wait"
-                              },
-                              "parameters": [
-                                "0.5"
-                              ]
-                            },
-                            {
-                              "type": {
-                                "value": "Tween::TweenBehavior::AddObjectAngleTween2"
-                              },
-                              "parameters": [
-                                "tutup_toples_salah",
-                                "Tween",
-                                "\"go close\"",
-                                "0",
-                                "\"linear\"",
-                                "0.2",
-                                ""
-                              ]
-                            },
-                            {
-                              "type": {
-                                "value": "Tween::TweenBehavior::AddObjectPositionTween2"
-                              },
-                              "parameters": [
-                                "tutup_toples_salah",
-                                "Tween",
-                                "\"go close 2\"",
-                                "tutup_toples_salah.X() -75",
-                                "tutup_toples_salah.Y() +75",
-                                "\"linear\"",
-                                "0.2",
-                                ""
-                              ]
-                            },
-                            {
-                              "type": {
-                                "value": "Wait"
-                              },
-                              "parameters": [
-                                "1.3"
-                              ]
-                            },
-                            {
-                              "type": {
-                                "value": "Tween::TweenBehavior::AddObjectPositionYTween2"
-                              },
-                              "parameters": [
-                                "biskuit",
-                                "Tween",
-                                "\"go down\"",
-                                "biskuit.Y() + 569",
-                                "\"easeOutCubic\"",
                                 "0.5",
                                 ""
                               ]
@@ -2371,13 +1211,42 @@
                                 "value": "Tween::TweenBehavior::AddObjectPositionYTween2"
                               },
                               "parameters": [
-                                "toples_salah_group",
+                                "melanjutkan_button",
                                 "Tween",
-                                "\"go down\"",
-                                "toples_salah_group.Y() + 569",
-                                "\"easeOutCubic\"",
-                                "0.5",
+                                "\"go up 2\"",
+                                "557",
+                                "\"easeOutQuad\"",
+                                "0.2",
                                 ""
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "Montre"
+                              },
+                              "parameters": [
+                                "centang",
+                                ""
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "Montre"
+                              },
+                              "parameters": [
+                                "benar_text",
+                                ""
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "TextContainerCapability::TextContainerBehavior::SetValue"
+                              },
+                              "parameters": [
+                                "benar_text",
+                                "Text",
+                                "=",
+                                "\"Tepat! Kamu ingat biskuit sebelumnya dengan baik!\""
                               ]
                             },
                             {
@@ -2385,23 +1254,1209 @@
                                 "value": "SetNumberVariable"
                               },
                               "parameters": [
-                                "jumlah_salah",
+                                "score_var",
                                 "+",
+                                "10"
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "BuiltinCommonInstructions::Standard",
+                          "conditions": [
+                            {
+                              "type": {
+                                "value": "BuiltinCommonInstructions::And"
+                              },
+                              "parameters": [],
+                              "subInstructions": [
+                                {
+                                  "type": {
+                                    "value": "AnimatableCapability::AnimatableBehavior::Name"
+                                  },
+                                  "parameters": [
+                                    "biskuit",
+                                    "Animation",
+                                    "=",
+                                    "previous_biskuit_animation"
+                                  ]
+                                },
+                                {
+                                  "type": {
+                                    "value": "NumberVariable"
+                                  },
+                                  "parameters": [
+                                    "melanjutkan_klik",
+                                    "=",
+                                    "2"
+                                  ]
+                                }
+                              ]
+                            }
+                          ],
+                          "actions": [
+                            {
+                              "type": {
+                                "value": "PlaySoundCanal"
+                              },
+                              "parameters": [
+                                "",
+                                "sound\\SFX\\jawaban benar - pola biskuit.wav",
+                                "1",
+                                "",
+                                "setting.sound",
                                 "1"
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "SetNumberObjectVariable"
+                              },
+                              "parameters": [
+                                "biskuit",
+                                "position_state",
+                                "=",
+                                "1"
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "SetNumberVariable"
+                              },
+                              "parameters": [
+                                "score_var",
+                                "+",
+                                "10"
+                              ]
+                            }
+                          ],
+                          "events": [
+                            {
+                              "type": "BuiltinCommonInstructions::Standard",
+                              "conditions": [
+                                {
+                                  "type": {
+                                    "value": "AjoutObjConcern"
+                                  },
+                                  "parameters": [
+                                    "",
+                                    "confirm_button"
+                                  ]
+                                }
+                              ],
+                              "actions": [
+                                {
+                                  "type": {
+                                    "value": "Tween::TweenBehavior::AddObjectOpacityTween2"
+                                  },
+                                  "parameters": [
+                                    "confirm_button",
+                                    "Tween",
+                                    "\"go hide\"",
+                                    "0",
+                                    "\"linear\"",
+                                    "0.5",
+                                    ""
+                                  ]
+                                },
+                                {
+                                  "type": {
+                                    "value": "Tween::TweenBehavior::AddObjectAngleTween2"
+                                  },
+                                  "parameters": [
+                                    "tutup_toples",
+                                    "Tween",
+                                    "\"go open\"",
+                                    "60",
+                                    "\"linear\"",
+                                    "0.2",
+                                    ""
+                                  ]
+                                },
+                                {
+                                  "type": {
+                                    "value": "Tween::TweenBehavior::AddObjectPositionTween2"
+                                  },
+                                  "parameters": [
+                                    "tutup_toples",
+                                    "Tween",
+                                    "\"go open 2\"",
+                                    "tutup_toples.X() +75",
+                                    "tutup_toples.Y() -75",
+                                    "\"linear\"",
+                                    "0.2",
+                                    ""
+                                  ]
+                                },
+                                {
+                                  "type": {
+                                    "value": "Wait"
+                                  },
+                                  "parameters": [
+                                    "1"
+                                  ]
+                                },
+                                {
+                                  "type": {
+                                    "value": "Tween::TweenBehavior::AddObjectPositionYTween2"
+                                  },
+                                  "parameters": [
+                                    "biskuit",
+                                    "Tween",
+                                    "\"go down\"",
+                                    "720",
+                                    "\"linear\"",
+                                    "0.5",
+                                    ""
+                                  ]
+                                },
+                                {
+                                  "type": {
+                                    "value": "Tween::TweenBehavior::AddObjectScaleTween3"
+                                  },
+                                  "parameters": [
+                                    "biskuit",
+                                    "Tween",
+                                    "\"go shrink\"",
+                                    "0.5",
+                                    "\"linear\"",
+                                    "0.5",
+                                    "",
+                                    "yes"
+                                  ]
+                                },
+                                {
+                                  "type": {
+                                    "value": "Wait"
+                                  },
+                                  "parameters": [
+                                    "0.5"
+                                  ]
+                                },
+                                {
+                                  "type": {
+                                    "value": "Tween::TweenBehavior::AddObjectAngleTween2"
+                                  },
+                                  "parameters": [
+                                    "tutup_toples",
+                                    "Tween",
+                                    "\"go close\"",
+                                    "0",
+                                    "\"linear\"",
+                                    "0.2",
+                                    ""
+                                  ]
+                                },
+                                {
+                                  "type": {
+                                    "value": "Tween::TweenBehavior::AddObjectPositionTween2"
+                                  },
+                                  "parameters": [
+                                    "tutup_toples",
+                                    "Tween",
+                                    "\"go close 2\"",
+                                    "tutup_toples.X() -75",
+                                    "tutup_toples.Y() +75",
+                                    "\"linear\"",
+                                    "0.2",
+                                    ""
+                                  ]
+                                },
+                                {
+                                  "type": {
+                                    "value": "SetBooleanVariable"
+                                  },
+                                  "parameters": [
+                                    "selanjutnya",
+                                    "True",
+                                    ""
+                                  ]
+                                }
                               ]
                             }
                           ]
                         }
+                      ],
+                      "parameters": []
+                    },
+                    {
+                      "colorB": 228,
+                      "colorG": 176,
+                      "colorR": 74,
+                      "creationTime": 0,
+                      "name": "salah",
+                      "source": "",
+                      "type": "BuiltinCommonInstructions::Group",
+                      "events": [
+                        {
+                          "type": "BuiltinCommonInstructions::Standard",
+                          "conditions": [
+                            {
+                              "type": {
+                                "value": "AnimatableCapability::AnimatableBehavior::Name"
+                              },
+                              "parameters": [
+                                "biskuit",
+                                "Animation",
+                                "!=",
+                                "previous_biskuit_animation"
+                              ]
+                            }
+                          ],
+                          "actions": [
+                            {
+                              "type": {
+                                "value": "SetNumberObjectVariable"
+                              },
+                              "parameters": [
+                                "biskuit",
+                                "position_state",
+                                "=",
+                                "2"
+                              ]
+                            }
+                          ],
+                          "events": [
+                            {
+                              "type": "BuiltinCommonInstructions::Standard",
+                              "conditions": [
+                                {
+                                  "type": {
+                                    "value": "NumberVariable"
+                                  },
+                                  "parameters": [
+                                    "score_var",
+                                    ">",
+                                    "0"
+                                  ]
+                                }
+                              ],
+                              "actions": [
+                                {
+                                  "type": {
+                                    "value": "SetNumberVariable"
+                                  },
+                                  "parameters": [
+                                    "score_var",
+                                    "-",
+                                    "2"
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": "BuiltinCommonInstructions::Standard",
+                              "conditions": [],
+                              "actions": [
+                                {
+                                  "type": {
+                                    "value": "DebuggerTools::ConsoleLog"
+                                  },
+                                  "parameters": [
+                                    "\"salah sama\"",
+                                    "\"info\"",
+                                    ""
+                                  ]
+                                },
+                                {
+                                  "type": {
+                                    "value": "Tween::TweenBehavior::AddObjectPositionYTween2"
+                                  },
+                                  "parameters": [
+                                    "toples_salah_group",
+                                    "Tween",
+                                    "\"go up\"",
+                                    "toples_salah_group.Y() - 569",
+                                    "\"easeOutCubic\"",
+                                    "0.5",
+                                    ""
+                                  ]
+                                },
+                                {
+                                  "type": {
+                                    "value": "Wait"
+                                  },
+                                  "parameters": [
+                                    "0.5"
+                                  ]
+                                },
+                                {
+                                  "type": {
+                                    "value": "Tween::TweenBehavior::AddObjectAngleTween2"
+                                  },
+                                  "parameters": [
+                                    "tutup_toples_salah",
+                                    "Tween",
+                                    "\"go open\"",
+                                    "60",
+                                    "\"linear\"",
+                                    "0.2",
+                                    ""
+                                  ]
+                                },
+                                {
+                                  "type": {
+                                    "value": "Tween::TweenBehavior::AddObjectPositionTween2"
+                                  },
+                                  "parameters": [
+                                    "tutup_toples_salah",
+                                    "Tween",
+                                    "\"go open 2\"",
+                                    "tutup_toples_salah.X() +75",
+                                    "tutup_toples_salah.Y() -75",
+                                    "\"linear\"",
+                                    "0.2",
+                                    ""
+                                  ]
+                                },
+                                {
+                                  "type": {
+                                    "value": "Wait"
+                                  },
+                                  "parameters": [
+                                    "1"
+                                  ]
+                                },
+                                {
+                                  "type": {
+                                    "value": "Tween::TweenBehavior::AddObjectPositionTween2"
+                                  },
+                                  "parameters": [
+                                    "biskuit",
+                                    "Tween",
+                                    "\"go down\"",
+                                    "1010",
+                                    "500",
+                                    "\"easeInQuad\"",
+                                    "0.2",
+                                    ""
+                                  ]
+                                },
+                                {
+                                  "type": {
+                                    "value": "Tween::TweenBehavior::AddObjectScaleTween3"
+                                  },
+                                  "parameters": [
+                                    "biskuit",
+                                    "Tween",
+                                    "\"go shrink\"",
+                                    "0.5",
+                                    "\"linear\"",
+                                    "0.2",
+                                    "",
+                                    "yes"
+                                  ]
+                                },
+                                {
+                                  "type": {
+                                    "value": "Wait"
+                                  },
+                                  "parameters": [
+                                    "1"
+                                  ]
+                                },
+                                {
+                                  "type": {
+                                    "value": "Tween::TweenBehavior::AddObjectPositionTween2"
+                                  },
+                                  "parameters": [
+                                    "biskuit",
+                                    "Tween",
+                                    "\"go down\"",
+                                    "1010",
+                                    "650",
+                                    "\"easeInQuad\"",
+                                    "0.5",
+                                    ""
+                                  ]
+                                },
+                                {
+                                  "type": {
+                                    "value": "Wait"
+                                  },
+                                  "parameters": [
+                                    "0.5"
+                                  ]
+                                },
+                                {
+                                  "type": {
+                                    "value": "Tween::TweenBehavior::AddObjectAngleTween2"
+                                  },
+                                  "parameters": [
+                                    "tutup_toples_salah",
+                                    "Tween",
+                                    "\"go close\"",
+                                    "0",
+                                    "\"linear\"",
+                                    "0.2",
+                                    ""
+                                  ]
+                                },
+                                {
+                                  "type": {
+                                    "value": "Tween::TweenBehavior::AddObjectPositionTween2"
+                                  },
+                                  "parameters": [
+                                    "tutup_toples_salah",
+                                    "Tween",
+                                    "\"go close 2\"",
+                                    "tutup_toples_salah.X() -75",
+                                    "tutup_toples_salah.Y() +75",
+                                    "\"linear\"",
+                                    "0.2",
+                                    ""
+                                  ]
+                                },
+                                {
+                                  "type": {
+                                    "value": "Wait"
+                                  },
+                                  "parameters": [
+                                    "1.3"
+                                  ]
+                                },
+                                {
+                                  "type": {
+                                    "value": "Tween::TweenBehavior::AddObjectPositionYTween2"
+                                  },
+                                  "parameters": [
+                                    "biskuit",
+                                    "Tween",
+                                    "\"go down\"",
+                                    "biskuit.Y() + 569",
+                                    "\"easeOutCubic\"",
+                                    "0.5",
+                                    ""
+                                  ]
+                                },
+                                {
+                                  "type": {
+                                    "value": "Tween::TweenBehavior::AddObjectPositionYTween2"
+                                  },
+                                  "parameters": [
+                                    "toples_salah_group",
+                                    "Tween",
+                                    "\"go down\"",
+                                    "toples_salah_group.Y() + 569",
+                                    "\"easeOutCubic\"",
+                                    "0.5",
+                                    ""
+                                  ]
+                                },
+                                {
+                                  "type": {
+                                    "value": "Wait"
+                                  },
+                                  "parameters": [
+                                    "1.5"
+                                  ]
+                                },
+                                {
+                                  "type": {
+                                    "value": "SetNumberVariable"
+                                  },
+                                  "parameters": [
+                                    "jumlah_salah",
+                                    "+",
+                                    "1"
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "parameters": []
+                    }
+                  ]
+                },
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "value": "AnimatableCapability::AnimatableBehavior::Name"
+                      },
+                      "parameters": [
+                        "confirm_button",
+                        "Animation",
+                        "=",
+                        "\"tidak_sama\""
                       ]
                     }
                   ],
-                  "parameters": []
+                  "actions": [],
+                  "events": [
+                    {
+                      "colorB": 228,
+                      "colorG": 176,
+                      "colorR": 74,
+                      "creationTime": 0,
+                      "name": "benar",
+                      "source": "",
+                      "type": "BuiltinCommonInstructions::Group",
+                      "events": [
+                        {
+                          "type": "BuiltinCommonInstructions::Standard",
+                          "conditions": [
+                            {
+                              "type": {
+                                "value": "BuiltinCommonInstructions::And"
+                              },
+                              "parameters": [],
+                              "subInstructions": [
+                                {
+                                  "type": {
+                                    "value": "AnimatableCapability::AnimatableBehavior::Name"
+                                  },
+                                  "parameters": [
+                                    "biskuit",
+                                    "Animation",
+                                    "!=",
+                                    "previous_biskuit_animation"
+                                  ]
+                                },
+                                {
+                                  "type": {
+                                    "value": "NumberVariable"
+                                  },
+                                  "parameters": [
+                                    "melanjutkan_klik",
+                                    "=",
+                                    "1"
+                                  ]
+                                }
+                              ]
+                            }
+                          ],
+                          "actions": [
+                            {
+                              "type": {
+                                "value": "PlaySoundCanal"
+                              },
+                              "parameters": [
+                                "",
+                                "sound\\SFX\\jawaban benar - pola biskuit.wav",
+                                "1",
+                                "",
+                                "setting.sound",
+                                "1"
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "SetNumberObjectVariable"
+                              },
+                              "parameters": [
+                                "biskuit",
+                                "position_state",
+                                "=",
+                                "1"
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "DebuggerTools::ConsoleLog"
+                              },
+                              "parameters": [
+                                "\"benar tidak sama\"",
+                                "\"info\"",
+                                ""
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "ChangeLayer"
+                              },
+                              "parameters": [
+                                "melanjutkan_button",
+                                "\"benar\""
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "Tween::TweenBehavior::AddObjectOpacityTween2"
+                              },
+                              "parameters": [
+                                "correct_layer",
+                                "Tween",
+                                "\"go show\"",
+                                "170",
+                                "\"linear\"",
+                                "0.5",
+                                ""
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "Tween::TweenBehavior::AddObjectPositionYTween2"
+                              },
+                              "parameters": [
+                                "melanjutkan_button",
+                                "Tween",
+                                "\"go up 2\"",
+                                "557",
+                                "\"easeOutQuad\"",
+                                "0.2",
+                                ""
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "Montre"
+                              },
+                              "parameters": [
+                                "centang",
+                                ""
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "Montre"
+                              },
+                              "parameters": [
+                                "benar_text",
+                                ""
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "TextContainerCapability::TextContainerBehavior::SetValue"
+                              },
+                              "parameters": [
+                                "benar_text",
+                                "Text",
+                                "=",
+                                "\"Tepat! Kamu ingat biskuit sebelumnya dengan baik!\""
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "SetNumberVariable"
+                              },
+                              "parameters": [
+                                "score_var",
+                                "+",
+                                "10"
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "BuiltinCommonInstructions::Standard",
+                          "conditions": [
+                            {
+                              "type": {
+                                "value": "BuiltinCommonInstructions::And"
+                              },
+                              "parameters": [],
+                              "subInstructions": [
+                                {
+                                  "type": {
+                                    "value": "AnimatableCapability::AnimatableBehavior::Name"
+                                  },
+                                  "parameters": [
+                                    "biskuit",
+                                    "Animation",
+                                    "!=",
+                                    "previous_biskuit_animation"
+                                  ]
+                                },
+                                {
+                                  "type": {
+                                    "value": "NumberVariable"
+                                  },
+                                  "parameters": [
+                                    "melanjutkan_klik",
+                                    "=",
+                                    "2"
+                                  ]
+                                }
+                              ]
+                            }
+                          ],
+                          "actions": [
+                            {
+                              "type": {
+                                "value": "PlaySoundCanal"
+                              },
+                              "parameters": [
+                                "",
+                                "sound\\SFX\\jawaban benar - pola biskuit.wav",
+                                "1",
+                                "",
+                                "setting.sound",
+                                "1"
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "SetNumberObjectVariable"
+                              },
+                              "parameters": [
+                                "biskuit",
+                                "position_state",
+                                "=",
+                                "1"
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "SetNumberVariable"
+                              },
+                              "parameters": [
+                                "score_var",
+                                "+",
+                                "10"
+                              ]
+                            }
+                          ],
+                          "events": [
+                            {
+                              "type": "BuiltinCommonInstructions::Standard",
+                              "conditions": [
+                                {
+                                  "type": {
+                                    "value": "AjoutObjConcern"
+                                  },
+                                  "parameters": [
+                                    "",
+                                    "confirm_button"
+                                  ]
+                                }
+                              ],
+                              "actions": [
+                                {
+                                  "type": {
+                                    "value": "Tween::TweenBehavior::AddObjectOpacityTween2"
+                                  },
+                                  "parameters": [
+                                    "confirm_button",
+                                    "Tween",
+                                    "\"go hide\"",
+                                    "0",
+                                    "\"linear\"",
+                                    "0.5",
+                                    ""
+                                  ]
+                                },
+                                {
+                                  "type": {
+                                    "value": "Tween::TweenBehavior::AddObjectAngleTween2"
+                                  },
+                                  "parameters": [
+                                    "tutup_toples",
+                                    "Tween",
+                                    "\"go open\"",
+                                    "60",
+                                    "\"linear\"",
+                                    "0.2",
+                                    ""
+                                  ]
+                                },
+                                {
+                                  "type": {
+                                    "value": "Tween::TweenBehavior::AddObjectPositionTween2"
+                                  },
+                                  "parameters": [
+                                    "tutup_toples",
+                                    "Tween",
+                                    "\"go open 2\"",
+                                    "tutup_toples.X() +75",
+                                    "tutup_toples.Y() -75",
+                                    "\"linear\"",
+                                    "0.2",
+                                    ""
+                                  ]
+                                },
+                                {
+                                  "type": {
+                                    "value": "Wait"
+                                  },
+                                  "parameters": [
+                                    "1"
+                                  ]
+                                },
+                                {
+                                  "type": {
+                                    "value": "Tween::TweenBehavior::AddObjectPositionYTween2"
+                                  },
+                                  "parameters": [
+                                    "biskuit",
+                                    "Tween",
+                                    "\"go down\"",
+                                    "720",
+                                    "\"linear\"",
+                                    "0.5",
+                                    ""
+                                  ]
+                                },
+                                {
+                                  "type": {
+                                    "value": "Tween::TweenBehavior::AddObjectScaleTween3"
+                                  },
+                                  "parameters": [
+                                    "biskuit",
+                                    "Tween",
+                                    "\"go shrink\"",
+                                    "0.5",
+                                    "\"linear\"",
+                                    "0.5",
+                                    "",
+                                    "yes"
+                                  ]
+                                },
+                                {
+                                  "type": {
+                                    "value": "Wait"
+                                  },
+                                  "parameters": [
+                                    "0.5"
+                                  ]
+                                },
+                                {
+                                  "type": {
+                                    "value": "Tween::TweenBehavior::AddObjectAngleTween2"
+                                  },
+                                  "parameters": [
+                                    "tutup_toples",
+                                    "Tween",
+                                    "\"go close\"",
+                                    "0",
+                                    "\"linear\"",
+                                    "0.2",
+                                    ""
+                                  ]
+                                },
+                                {
+                                  "type": {
+                                    "value": "Tween::TweenBehavior::AddObjectPositionTween2"
+                                  },
+                                  "parameters": [
+                                    "tutup_toples",
+                                    "Tween",
+                                    "\"go close 2\"",
+                                    "tutup_toples.X() -75",
+                                    "tutup_toples.Y() +75",
+                                    "\"linear\"",
+                                    "0.2",
+                                    ""
+                                  ]
+                                },
+                                {
+                                  "type": {
+                                    "value": "SetBooleanVariable"
+                                  },
+                                  "parameters": [
+                                    "selanjutnya",
+                                    "True",
+                                    ""
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "parameters": []
+                    },
+                    {
+                      "colorB": 228,
+                      "colorG": 176,
+                      "colorR": 74,
+                      "creationTime": 0,
+                      "name": "salah",
+                      "source": "",
+                      "type": "BuiltinCommonInstructions::Group",
+                      "events": [
+                        {
+                          "type": "BuiltinCommonInstructions::Standard",
+                          "conditions": [
+                            {
+                              "type": {
+                                "value": "AnimatableCapability::AnimatableBehavior::Name"
+                              },
+                              "parameters": [
+                                "biskuit",
+                                "Animation",
+                                "=",
+                                "previous_biskuit_animation"
+                              ]
+                            }
+                          ],
+                          "actions": [
+                            {
+                              "type": {
+                                "value": "SetNumberObjectVariable"
+                              },
+                              "parameters": [
+                                "biskuit",
+                                "position_state",
+                                "=",
+                                "2"
+                              ]
+                            }
+                          ],
+                          "events": [
+                            {
+                              "type": "BuiltinCommonInstructions::Standard",
+                              "conditions": [
+                                {
+                                  "type": {
+                                    "value": "NumberVariable"
+                                  },
+                                  "parameters": [
+                                    "score_var",
+                                    ">",
+                                    "0"
+                                  ]
+                                }
+                              ],
+                              "actions": [
+                                {
+                                  "type": {
+                                    "value": "SetNumberVariable"
+                                  },
+                                  "parameters": [
+                                    "score_var",
+                                    "-",
+                                    "2"
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": "BuiltinCommonInstructions::Standard",
+                              "conditions": [],
+                              "actions": [
+                                {
+                                  "type": {
+                                    "value": "DebuggerTools::ConsoleLog"
+                                  },
+                                  "parameters": [
+                                    "\"salah sama\"",
+                                    "\"info\"",
+                                    ""
+                                  ]
+                                },
+                                {
+                                  "type": {
+                                    "value": "Tween::TweenBehavior::AddObjectPositionYTween2"
+                                  },
+                                  "parameters": [
+                                    "toples_salah_group",
+                                    "Tween",
+                                    "\"go up\"",
+                                    "toples_salah_group.Y() - 569",
+                                    "\"easeOutCubic\"",
+                                    "0.5",
+                                    ""
+                                  ]
+                                },
+                                {
+                                  "type": {
+                                    "value": "Wait"
+                                  },
+                                  "parameters": [
+                                    "0.5"
+                                  ]
+                                },
+                                {
+                                  "type": {
+                                    "value": "Tween::TweenBehavior::AddObjectAngleTween2"
+                                  },
+                                  "parameters": [
+                                    "tutup_toples_salah",
+                                    "Tween",
+                                    "\"go open\"",
+                                    "60",
+                                    "\"linear\"",
+                                    "0.2",
+                                    ""
+                                  ]
+                                },
+                                {
+                                  "type": {
+                                    "value": "Tween::TweenBehavior::AddObjectPositionTween2"
+                                  },
+                                  "parameters": [
+                                    "tutup_toples_salah",
+                                    "Tween",
+                                    "\"go open 2\"",
+                                    "tutup_toples_salah.X() +75",
+                                    "tutup_toples_salah.Y() -75",
+                                    "\"linear\"",
+                                    "0.2",
+                                    ""
+                                  ]
+                                },
+                                {
+                                  "type": {
+                                    "value": "Wait"
+                                  },
+                                  "parameters": [
+                                    "1"
+                                  ]
+                                },
+                                {
+                                  "type": {
+                                    "value": "Tween::TweenBehavior::AddObjectPositionTween2"
+                                  },
+                                  "parameters": [
+                                    "biskuit",
+                                    "Tween",
+                                    "\"go down\"",
+                                    "1010",
+                                    "500",
+                                    "\"easeInQuad\"",
+                                    "0.2",
+                                    ""
+                                  ]
+                                },
+                                {
+                                  "type": {
+                                    "value": "Tween::TweenBehavior::AddObjectScaleTween3"
+                                  },
+                                  "parameters": [
+                                    "biskuit",
+                                    "Tween",
+                                    "\"go shrink\"",
+                                    "0.5",
+                                    "\"linear\"",
+                                    "0.2",
+                                    "",
+                                    "yes"
+                                  ]
+                                },
+                                {
+                                  "type": {
+                                    "value": "Wait"
+                                  },
+                                  "parameters": [
+                                    "1"
+                                  ]
+                                },
+                                {
+                                  "type": {
+                                    "value": "Tween::TweenBehavior::AddObjectPositionTween2"
+                                  },
+                                  "parameters": [
+                                    "biskuit",
+                                    "Tween",
+                                    "\"go down\"",
+                                    "1010",
+                                    "650",
+                                    "\"easeInQuad\"",
+                                    "0.5",
+                                    ""
+                                  ]
+                                },
+                                {
+                                  "type": {
+                                    "value": "Wait"
+                                  },
+                                  "parameters": [
+                                    "0.5"
+                                  ]
+                                },
+                                {
+                                  "type": {
+                                    "value": "Tween::TweenBehavior::AddObjectAngleTween2"
+                                  },
+                                  "parameters": [
+                                    "tutup_toples_salah",
+                                    "Tween",
+                                    "\"go close\"",
+                                    "0",
+                                    "\"linear\"",
+                                    "0.2",
+                                    ""
+                                  ]
+                                },
+                                {
+                                  "type": {
+                                    "value": "Tween::TweenBehavior::AddObjectPositionTween2"
+                                  },
+                                  "parameters": [
+                                    "tutup_toples_salah",
+                                    "Tween",
+                                    "\"go close 2\"",
+                                    "tutup_toples_salah.X() -75",
+                                    "tutup_toples_salah.Y() +75",
+                                    "\"linear\"",
+                                    "0.2",
+                                    ""
+                                  ]
+                                },
+                                {
+                                  "type": {
+                                    "value": "Wait"
+                                  },
+                                  "parameters": [
+                                    "1.3"
+                                  ]
+                                },
+                                {
+                                  "type": {
+                                    "value": "Tween::TweenBehavior::AddObjectPositionYTween2"
+                                  },
+                                  "parameters": [
+                                    "biskuit",
+                                    "Tween",
+                                    "\"go down\"",
+                                    "biskuit.Y() + 569",
+                                    "\"easeOutCubic\"",
+                                    "0.5",
+                                    ""
+                                  ]
+                                },
+                                {
+                                  "type": {
+                                    "value": "Tween::TweenBehavior::AddObjectPositionYTween2"
+                                  },
+                                  "parameters": [
+                                    "toples_salah_group",
+                                    "Tween",
+                                    "\"go down\"",
+                                    "toples_salah_group.Y() + 569",
+                                    "\"easeOutCubic\"",
+                                    "0.5",
+                                    ""
+                                  ]
+                                },
+                                {
+                                  "type": {
+                                    "value": "Wait"
+                                  },
+                                  "parameters": [
+                                    "1.5"
+                                  ]
+                                },
+                                {
+                                  "type": {
+                                    "value": "SetNumberVariable"
+                                  },
+                                  "parameters": [
+                                    "jumlah_salah",
+                                    "+",
+                                    "1"
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "parameters": []
+                    }
+                  ]
                 }
               ]
             }
           ]
         }
-      ]
+      ],
+      "parameters": []
     },
     {
       "folded": true,
@@ -2499,7 +2554,6 @@
       ]
     },
     {
-      "folded": true,
       "type": "BuiltinCommonInstructions::Standard",
       "conditions": [
         {
@@ -2511,28 +2565,15 @@
             "=",
             "1"
           ]
-        }
-      ],
-      "actions": [
-        {
-          "type": {
-            "value": "Montre"
-          },
-          "parameters": [
-            "lihat_kembali_text",
-            ""
-          ]
         },
         {
           "type": {
-            "value": "Montre"
+            "value": "BuiltinCommonInstructions::Once"
           },
-          "parameters": [
-            "lihat_kembali_button",
-            ""
-          ]
+          "parameters": []
         }
       ],
+      "actions": [],
       "events": [
         {
           "type": "BuiltinCommonInstructions::Standard",
@@ -2546,9 +2587,34 @@
                 "Tween",
                 "\"go left\""
               ]
+            },
+            {
+              "type": {
+                "value": "BuiltinCommonInstructions::Once"
+              },
+              "parameters": []
             }
           ],
-          "actions": [],
+          "actions": [
+            {
+              "type": {
+                "value": "Montre"
+              },
+              "parameters": [
+                "lihat_kembali_button",
+                ""
+              ]
+            },
+            {
+              "type": {
+                "value": "Montre"
+              },
+              "parameters": [
+                "lihat_kembali_text",
+                ""
+              ]
+            }
+          ],
           "events": [
             {
               "type": "BuiltinCommonInstructions::Standard",
@@ -2582,27 +2648,928 @@
       ]
     },
     {
-      "type": "BuiltinCommonInstructions::Standard",
-      "conditions": [
+      "colorB": 228,
+      "colorG": 176,
+      "colorR": 74,
+      "creationTime": 0,
+      "name": "lihat kembali logic",
+      "source": "",
+      "type": "BuiltinCommonInstructions::Group",
+      "events": [
         {
-          "type": {
-            "value": "BooleanVariable"
-          },
-          "parameters": [
-            "is_previos_biscuit_button_show",
-            "True",
-            ""
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "ButtonStates::ButtonFSM::IsClicked"
+              },
+              "parameters": [
+                "lihat_kembali_button",
+                "ButtonFSM",
+                ""
+              ]
+            },
+            {
+              "type": {
+                "value": "AjoutObjConcern"
+              },
+              "parameters": [
+                "melanjutkan_button",
+                "melanjutkan_button"
+              ]
+            },
+            {
+              "type": {
+                "value": "AjoutObjConcern"
+              },
+              "parameters": [
+                "melanjutkan_button",
+                "confirm_button"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "ActivateBehavior"
+              },
+              "parameters": [
+                "confirm_button",
+                "ButtonFSM",
+                ""
+              ]
+            },
+            {
+              "type": {
+                "value": "ActivateBehavior"
+              },
+              "parameters": [
+                "confirm_button",
+                "ButtonScaleTween",
+                ""
+              ]
+            },
+            {
+              "type": {
+                "value": "ActivateBehavior"
+              },
+              "parameters": [
+                "lihat_kembali_button",
+                "ButtonFSM",
+                ""
+              ]
+            },
+            {
+              "type": {
+                "value": "Cache"
+              },
+              "parameters": [
+                "lihat_kembali_text"
+              ]
+            },
+            {
+              "type": {
+                "value": "ActivateBehavior"
+              },
+              "parameters": [
+                "melanjutkan_button",
+                "ButtonFSM",
+                ""
+              ]
+            },
+            {
+              "type": {
+                "value": "ActivateBehavior"
+              },
+              "parameters": [
+                "melanjutkan_button",
+                "ButtonScaleTween",
+                ""
+              ]
+            },
+            {
+              "type": {
+                "value": "SetNumberVariable"
+              },
+              "parameters": [
+                "jumlah_salah",
+                "=",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "Tween::TweenBehavior::AddObjectOpacityTween2"
+              },
+              "parameters": [
+                "confirm_button",
+                "Tween",
+                "\"go hide for look back\"",
+                "0",
+                "\"linear\"",
+                "0.5",
+                ""
+              ]
+            }
+          ],
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "NumberObjectVariable"
+                  },
+                  "parameters": [
+                    "biskuit",
+                    "id",
+                    "=",
+                    "biskuit_counter -1"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Tween::TweenBehavior::AddObjectPositionXTween2"
+                  },
+                  "parameters": [
+                    "biskuit",
+                    "Tween",
+                    "\"go right for lihat sebelumnya\"",
+                    "1280",
+                    "\"linear\"",
+                    "0.2",
+                    ""
+                  ]
+                }
+              ]
+            }
           ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "NumberObjectVariable"
+              },
+              "parameters": [
+                "biskuit",
+                "id",
+                "=",
+                "biskuit_counter -1"
+              ]
+            }
+          ],
+          "actions": [],
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "Tween::HasFinished"
+                  },
+                  "parameters": [
+                    "biskuit",
+                    "Tween",
+                    "\"go right for lihat sebelumnya\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "BuiltinCommonInstructions::Once"
+                  },
+                  "parameters": []
+                }
+              ],
+              "actions": [],
+              "events": [
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "value": "AjoutObjConcern"
+                      },
+                      "parameters": [
+                        "",
+                        "biskuit"
+                      ]
+                    }
+                  ],
+                  "actions": [],
+                  "events": [
+                    {
+                      "type": "BuiltinCommonInstructions::Standard",
+                      "conditions": [
+                        {
+                          "type": {
+                            "value": "NumberObjectVariable"
+                          },
+                          "parameters": [
+                            "biskuit",
+                            "id",
+                            "=",
+                            "biskuit_counter -2"
+                          ]
+                        }
+                      ],
+                      "actions": [],
+                      "events": [
+                        {
+                          "type": "BuiltinCommonInstructions::Standard",
+                          "conditions": [
+                            {
+                              "type": {
+                                "value": "NumberObjectVariable"
+                              },
+                              "parameters": [
+                                "biskuit",
+                                "position_state",
+                                "=",
+                                "1"
+                              ]
+                            }
+                          ],
+                          "actions": [
+                            {
+                              "type": {
+                                "value": "Tween::TweenBehavior::AddObjectAngleTween2"
+                              },
+                              "parameters": [
+                                "tutup_toples",
+                                "Tween",
+                                "\"go open\"",
+                                "60",
+                                "\"linear\"",
+                                "0.2",
+                                ""
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "Tween::TweenBehavior::AddObjectPositionTween2"
+                              },
+                              "parameters": [
+                                "tutup_toples",
+                                "Tween",
+                                "\"go open 2\"",
+                                "tutup_toples.X() +75",
+                                "tutup_toples.Y() -75",
+                                "\"linear\"",
+                                "0.2",
+                                ""
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "Wait"
+                              },
+                              "parameters": [
+                                "1"
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "Tween::TweenBehavior::AddObjectPositionYTween2"
+                              },
+                              "parameters": [
+                                "biskuit",
+                                "Tween",
+                                "\"go up for look back\"",
+                                "234",
+                                "\"linear\"",
+                                "0.2",
+                                ""
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "Tween::TweenBehavior::AddObjectScaleTween3"
+                              },
+                              "parameters": [
+                                "biskuit",
+                                "Tween",
+                                "\"go bigger\"",
+                                "1",
+                                "\"linear\"",
+                                "0.5",
+                                "",
+                                "yes"
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "Wait"
+                              },
+                              "parameters": [
+                                "1.5"
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "Tween::TweenBehavior::AddObjectPositionYTween2"
+                              },
+                              "parameters": [
+                                "biskuit",
+                                "Tween",
+                                "\"go down\"",
+                                "720",
+                                "\"linear\"",
+                                "0.5",
+                                ""
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "Tween::TweenBehavior::AddObjectScaleTween3"
+                              },
+                              "parameters": [
+                                "biskuit",
+                                "Tween",
+                                "\"go shrink\"",
+                                "0.5",
+                                "\"linear\"",
+                                "0.5",
+                                "",
+                                "yes"
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "Wait"
+                              },
+                              "parameters": [
+                                "0.5"
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "Tween::TweenBehavior::AddObjectAngleTween2"
+                              },
+                              "parameters": [
+                                "tutup_toples",
+                                "Tween",
+                                "\"go close\"",
+                                "0",
+                                "\"linear\"",
+                                "0.2",
+                                ""
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "Tween::TweenBehavior::AddObjectPositionTween2"
+                              },
+                              "parameters": [
+                                "tutup_toples",
+                                "Tween",
+                                "\"go close 2\"",
+                                "tutup_toples.X() -75",
+                                "tutup_toples.Y() +75",
+                                "\"linear\"",
+                                "0.2",
+                                ""
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "Wait"
+                              },
+                              "parameters": [
+                                "1"
+                              ]
+                            }
+                          ],
+                          "events": [
+                            {
+                              "type": "BuiltinCommonInstructions::Standard",
+                              "conditions": [
+                                {
+                                  "type": {
+                                    "value": "AjoutObjConcern"
+                                  },
+                                  "parameters": [
+                                    "",
+                                    "biskuit"
+                                  ]
+                                }
+                              ],
+                              "actions": [],
+                              "events": [
+                                {
+                                  "type": "BuiltinCommonInstructions::Standard",
+                                  "conditions": [
+                                    {
+                                      "type": {
+                                        "value": "NumberObjectVariable"
+                                      },
+                                      "parameters": [
+                                        "biskuit",
+                                        "id",
+                                        "=",
+                                        "biskuit_counter -1"
+                                      ]
+                                    }
+                                  ],
+                                  "actions": [
+                                    {
+                                      "type": {
+                                        "value": "Tween::TweenBehavior::AddObjectPositionTween2"
+                                      },
+                                      "parameters": [
+                                        "biskuit",
+                                        "Tween",
+                                        "\"go left after look back\"",
+                                        "500",
+                                        "235",
+                                        "\"linear\"",
+                                        "0.5",
+                                        ""
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "BuiltinCommonInstructions::Standard",
+                          "conditions": [
+                            {
+                              "type": {
+                                "value": "NumberObjectVariable"
+                              },
+                              "parameters": [
+                                "biskuit",
+                                "position_state",
+                                "=",
+                                "2"
+                              ]
+                            }
+                          ],
+                          "actions": [
+                            {
+                              "type": {
+                                "value": "Tween::TweenBehavior::AddObjectPositionYTween2"
+                              },
+                              "parameters": [
+                                "toples_salah_group",
+                                "Tween",
+                                "\"go up\"",
+                                "toples_salah_group.Y() - 569",
+                                "\"easeOutCubic\"",
+                                "0.5",
+                                ""
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "Wait"
+                              },
+                              "parameters": [
+                                "0.5"
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "Tween::TweenBehavior::AddObjectAngleTween2"
+                              },
+                              "parameters": [
+                                "tutup_toples_salah",
+                                "Tween",
+                                "\"go open\"",
+                                "60",
+                                "\"linear\"",
+                                "0.2",
+                                ""
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "Tween::TweenBehavior::AddObjectPositionTween2"
+                              },
+                              "parameters": [
+                                "tutup_toples_salah",
+                                "Tween",
+                                "\"go open 2\"",
+                                "tutup_toples_salah.X() +75",
+                                "tutup_toples_salah.Y() -75",
+                                "\"linear\"",
+                                "0.2",
+                                ""
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "Tween::TweenBehavior::AddObjectPositionTween2"
+                              },
+                              "parameters": [
+                                "biskuit",
+                                "Tween",
+                                "\"go up\"",
+                                "1010",
+                                "500",
+                                "\"easeInQuad\"",
+                                "0.2",
+                                ""
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "Wait"
+                              },
+                              "parameters": [
+                                "0.5"
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "Tween::TweenBehavior::AddObjectPositionTween2"
+                              },
+                              "parameters": [
+                                "biskuit",
+                                "Tween",
+                                "\"go up for look back\"",
+                                "492",
+                                "234",
+                                "\"linear\"",
+                                "0.5",
+                                ""
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "Tween::TweenBehavior::AddObjectScaleTween3"
+                              },
+                              "parameters": [
+                                "biskuit",
+                                "Tween",
+                                "\"go bigger\"",
+                                "1",
+                                "\"linear\"",
+                                "0.5",
+                                "",
+                                "yes"
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "Wait"
+                              },
+                              "parameters": [
+                                "2"
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "Tween::TweenBehavior::AddObjectPositionTween2"
+                              },
+                              "parameters": [
+                                "biskuit",
+                                "Tween",
+                                "\"go down\"",
+                                "1010",
+                                "500",
+                                "\"easeInQuad\"",
+                                "0.2",
+                                ""
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "Tween::TweenBehavior::AddObjectScaleTween3"
+                              },
+                              "parameters": [
+                                "biskuit",
+                                "Tween",
+                                "\"go shrink\"",
+                                "0.5",
+                                "\"linear\"",
+                                "0.2",
+                                "",
+                                "yes"
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "Wait"
+                              },
+                              "parameters": [
+                                "1"
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "Tween::TweenBehavior::AddObjectPositionTween2"
+                              },
+                              "parameters": [
+                                "biskuit",
+                                "Tween",
+                                "\"go down\"",
+                                "1010",
+                                "650",
+                                "\"easeInQuad\"",
+                                "0.5",
+                                ""
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "Wait"
+                              },
+                              "parameters": [
+                                "0.5"
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "Tween::TweenBehavior::AddObjectAngleTween2"
+                              },
+                              "parameters": [
+                                "tutup_toples_salah",
+                                "Tween",
+                                "\"go close\"",
+                                "0",
+                                "\"linear\"",
+                                "0.2",
+                                ""
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "Tween::TweenBehavior::AddObjectPositionTween2"
+                              },
+                              "parameters": [
+                                "tutup_toples_salah",
+                                "Tween",
+                                "\"go close 2\"",
+                                "tutup_toples_salah.X() -75",
+                                "tutup_toples_salah.Y() +75",
+                                "\"linear\"",
+                                "0.2",
+                                ""
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "Wait"
+                              },
+                              "parameters": [
+                                "1.3"
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "Tween::TweenBehavior::AddObjectPositionYTween2"
+                              },
+                              "parameters": [
+                                "biskuit",
+                                "Tween",
+                                "\"go down after look back\"",
+                                "biskuit.Y() + 569",
+                                "\"easeOutCubic\"",
+                                "0.5",
+                                ""
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "Tween::TweenBehavior::AddObjectPositionYTween2"
+                              },
+                              "parameters": [
+                                "toples_salah_group",
+                                "Tween",
+                                "\"go down after look back\"",
+                                "toples_salah_group.Y() + 569",
+                                "\"easeOutCubic\"",
+                                "0.5",
+                                ""
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "Wait"
+                              },
+                              "parameters": [
+                                "0.5"
+                              ]
+                            }
+                          ],
+                          "events": [
+                            {
+                              "type": "BuiltinCommonInstructions::Standard",
+                              "conditions": [
+                                {
+                                  "type": {
+                                    "value": "AjoutObjConcern"
+                                  },
+                                  "parameters": [
+                                    "",
+                                    "biskuit"
+                                  ]
+                                }
+                              ],
+                              "actions": [],
+                              "events": [
+                                {
+                                  "type": "BuiltinCommonInstructions::Standard",
+                                  "conditions": [
+                                    {
+                                      "type": {
+                                        "value": "NumberObjectVariable"
+                                      },
+                                      "parameters": [
+                                        "biskuit",
+                                        "id",
+                                        "=",
+                                        "biskuit_counter -1"
+                                      ]
+                                    }
+                                  ],
+                                  "actions": [
+                                    {
+                                      "type": {
+                                        "value": "Tween::TweenBehavior::AddObjectPositionTween2"
+                                      },
+                                      "parameters": [
+                                        "biskuit",
+                                        "Tween",
+                                        "\"go left after look back\"",
+                                        "500",
+                                        "235",
+                                        "\"linear\"",
+                                        "0.5",
+                                        ""
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "NumberObjectVariable"
+              },
+              "parameters": [
+                "biskuit",
+                "id",
+                "=",
+                "biskuit_counter - 1"
+              ]
+            }
+          ],
+          "actions": [],
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "Tween::HasFinished"
+                  },
+                  "parameters": [
+                    "biskuit",
+                    "Tween",
+                    "\"go left after look back\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "BuiltinCommonInstructions::Once"
+                  },
+                  "parameters": []
+                }
+              ],
+              "actions": [],
+              "events": [
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "value": "AjoutObjConcern"
+                      },
+                      "parameters": [
+                        "melanjutkan_button",
+                        "melanjutkan_button"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "AjoutObjConcern"
+                      },
+                      "parameters": [
+                        "melanjutkan_button",
+                        "confirm_button"
+                      ]
+                    }
+                  ],
+                  "actions": [],
+                  "events": [
+                    {
+                      "type": "BuiltinCommonInstructions::Standard",
+                      "conditions": [
+                        {
+                          "type": {
+                            "value": "BooleanVariable"
+                          },
+                          "parameters": [
+                            "is_setting_show",
+                            "=",
+                            ""
+                          ]
+                        }
+                      ],
+                      "actions": [
+                        {
+                          "type": {
+                            "value": "ActivateBehavior"
+                          },
+                          "parameters": [
+                            "confirm_button",
+                            "ButtonFSM",
+                            "yes"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "ActivateBehavior"
+                          },
+                          "parameters": [
+                            "melanjutkan_button",
+                            "ButtonFSM",
+                            "yes"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "Tween::TweenBehavior::AddObjectOpacityTween2"
+                          },
+                          "parameters": [
+                            "confirm_button",
+                            "Tween",
+                            "\"go show for after look back\"",
+                            "255",
+                            "\"linear\"",
+                            "0.5",
+                            ""
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "Tween::HasFinished"
+              },
+              "parameters": [
+                "biskuit",
+                "Tween",
+                "\"go left after look back\""
+              ]
+            },
+            {
+              "type": {
+                "value": "BuiltinCommonInstructions::Once"
+              },
+              "parameters": []
+            }
+          ],
+          "actions": []
         }
       ],
-      "actions": []
+      "parameters": []
     },
     {
       "colorB": 228,
       "colorG": 176,
       "colorR": 74,
       "creationTime": 0,
-      "folded": true,
       "name": "timer logic",
       "source": "",
       "type": "BuiltinCommonInstructions::Group",
@@ -2628,6 +3595,17 @@
                 "",
                 "\"count down\""
               ]
+            },
+            {
+              "type": {
+                "value": "TextContainerCapability::TextContainerBehavior::SetValue"
+              },
+              "parameters": [
+                "menit_text",
+                "Text",
+                "=",
+                "TimeFormatter::SecondsToHHMMSS(detik)"
+              ]
             }
           ]
         },
@@ -2643,17 +3621,6 @@
                 "\"count down\"",
                 ">=",
                 "1"
-              ]
-            },
-            {
-              "type": {
-                "value": "LayerTimeScale"
-              },
-              "parameters": [
-                "",
-                "\"kuda_kuda\"",
-                "!=",
-                "0"
               ]
             },
             {
@@ -2687,63 +3654,6 @@
         },
         {
           "type": "BuiltinCommonInstructions::Standard",
-          "conditions": [
-            {
-              "type": {
-                "value": "NumberVariable"
-              },
-              "parameters": [
-                "detik",
-                ">",
-                "10"
-              ]
-            }
-          ],
-          "actions": [
-            {
-              "type": {
-                "value": "TextContainerCapability::TextContainerBehavior::SetValue"
-              },
-              "parameters": [
-                "detik_text",
-                "Text",
-                "=",
-                "detik"
-              ]
-            }
-          ]
-        },
-        {
-          "type": "BuiltinCommonInstructions::Standard",
-          "conditions": [
-            {
-              "type": {
-                "inverted": true,
-                "value": "NumberVariable"
-              },
-              "parameters": [
-                "detik",
-                ">",
-                "10"
-              ]
-            }
-          ],
-          "actions": [
-            {
-              "type": {
-                "value": "TextContainerCapability::TextContainerBehavior::SetValue"
-              },
-              "parameters": [
-                "detik_text",
-                "Text",
-                "=",
-                "\"0\" + detik"
-              ]
-            }
-          ]
-        },
-        {
-          "type": "BuiltinCommonInstructions::Standard",
           "conditions": [],
           "actions": [
             {
@@ -2754,980 +3664,13 @@
                 "menit_text",
                 "Text",
                 "=",
-                "\"0\" + menit"
-              ]
-            }
-          ]
-        },
-        {
-          "type": "BuiltinCommonInstructions::Standard",
-          "conditions": [
-            {
-              "type": {
-                "value": "NumberVariable"
-              },
-              "parameters": [
-                "detik",
-                "=",
-                "-1"
-              ]
-            },
-            {
-              "type": {
-                "value": "BuiltinCommonInstructions::Once"
-              },
-              "parameters": []
-            }
-          ],
-          "actions": [
-            {
-              "type": {
-                "value": "SetNumberVariable"
-              },
-              "parameters": [
-                "menit",
-                "-",
-                "1"
-              ]
-            },
-            {
-              "type": {
-                "value": "SetNumberVariable"
-              },
-              "parameters": [
-                "detik",
-                "=",
-                "59"
-              ]
-            }
-          ]
-        },
-        {
-          "type": "BuiltinCommonInstructions::Standard",
-          "conditions": [
-            {
-              "type": {
-                "value": "BuiltinCommonInstructions::And"
-              },
-              "parameters": [],
-              "subInstructions": [
-                {
-                  "type": {
-                    "value": "NumberVariable"
-                  },
-                  "parameters": [
-                    "menit",
-                    "=",
-                    "0"
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "NumberVariable"
-                  },
-                  "parameters": [
-                    "detik",
-                    "=",
-                    "0"
-                  ]
-                }
-              ]
-            }
-          ],
-          "actions": [
-            {
-              "type": {
-                "value": "Scene"
-              },
-              "parameters": [
-                "",
-                "\"loading_scene\"",
-                ""
-              ]
-            },
-            {
-              "type": {
-                "value": "SetStringVariable"
-              },
-              "parameters": [
-                "loading_scene",
-                "=",
-                "\"level_2_gameplay\""
+                "TimeFormatter::SecondsToHHMMSS(detik)"
               ]
             }
           ]
         }
       ],
       "parameters": []
-    },
-    {
-      "type": "BuiltinCommonInstructions::Standard",
-      "conditions": [
-        {
-          "type": {
-            "value": "ButtonStates::ButtonFSM::IsClicked"
-          },
-          "parameters": [
-            "lihat_kembali_button",
-            "ButtonFSM",
-            ""
-          ]
-        },
-        {
-          "type": {
-            "value": "AjoutObjConcern"
-          },
-          "parameters": [
-            "melanjutkan_button",
-            "melanjutkan_button"
-          ]
-        },
-        {
-          "type": {
-            "value": "AjoutObjConcern"
-          },
-          "parameters": [
-            "melanjutkan_button",
-            "confirm_button"
-          ]
-        }
-      ],
-      "actions": [
-        {
-          "type": {
-            "value": "ActivateBehavior"
-          },
-          "parameters": [
-            "lihat_kembali_button",
-            "ButtonFSM",
-            ""
-          ]
-        },
-        {
-          "type": {
-            "value": "Cache"
-          },
-          "parameters": [
-            "lihat_kembali_text"
-          ]
-        },
-        {
-          "type": {
-            "value": "ActivateBehavior"
-          },
-          "parameters": [
-            "melanjutkan_button",
-            "ButtonFSM",
-            ""
-          ]
-        },
-        {
-          "type": {
-            "value": "ActivateBehavior"
-          },
-          "parameters": [
-            "confirm_button",
-            "ButtonFSM",
-            ""
-          ]
-        },
-        {
-          "type": {
-            "value": "SetNumberVariable"
-          },
-          "parameters": [
-            "jumlah_salah",
-            "=",
-            "0"
-          ]
-        },
-        {
-          "type": {
-            "value": "Tween::TweenBehavior::AddObjectOpacityTween2"
-          },
-          "parameters": [
-            "confirm_button",
-            "Tween",
-            "\"go hide for look back\"",
-            "0",
-            "\"linear\"",
-            "0.5",
-            ""
-          ]
-        },
-        {
-          "type": {
-            "value": "SetBooleanVariable"
-          },
-          "parameters": [
-            "is_during_look_back",
-            "True",
-            ""
-          ]
-        }
-      ],
-      "events": [
-        {
-          "type": "BuiltinCommonInstructions::Standard",
-          "conditions": [
-            {
-              "type": {
-                "value": "NumberObjectVariable"
-              },
-              "parameters": [
-                "biskuit",
-                "id",
-                "=",
-                "biskuit_counter -1"
-              ]
-            }
-          ],
-          "actions": [
-            {
-              "type": {
-                "value": "Tween::TweenBehavior::AddObjectPositionXTween2"
-              },
-              "parameters": [
-                "biskuit",
-                "Tween",
-                "\"go right for lihat sebelumnya\"",
-                "1280",
-                "\"linear\"",
-                "0.2",
-                ""
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "BuiltinCommonInstructions::Standard",
-      "conditions": [
-        {
-          "type": {
-            "value": "NumberObjectVariable"
-          },
-          "parameters": [
-            "biskuit",
-            "id",
-            "=",
-            "biskuit_counter -1"
-          ]
-        }
-      ],
-      "actions": [],
-      "events": [
-        {
-          "type": "BuiltinCommonInstructions::Standard",
-          "conditions": [
-            {
-              "type": {
-                "value": "Tween::HasFinished"
-              },
-              "parameters": [
-                "biskuit",
-                "Tween",
-                "\"go right for lihat sebelumnya\""
-              ]
-            },
-            {
-              "type": {
-                "value": "BuiltinCommonInstructions::Once"
-              },
-              "parameters": []
-            }
-          ],
-          "actions": [],
-          "events": [
-            {
-              "type": "BuiltinCommonInstructions::Standard",
-              "conditions": [
-                {
-                  "type": {
-                    "value": "AjoutObjConcern"
-                  },
-                  "parameters": [
-                    "",
-                    "biskuit"
-                  ]
-                }
-              ],
-              "actions": [],
-              "events": [
-                {
-                  "type": "BuiltinCommonInstructions::Standard",
-                  "conditions": [
-                    {
-                      "type": {
-                        "value": "NumberObjectVariable"
-                      },
-                      "parameters": [
-                        "biskuit",
-                        "id",
-                        "=",
-                        "biskuit_counter -2"
-                      ]
-                    }
-                  ],
-                  "actions": [],
-                  "events": [
-                    {
-                      "type": "BuiltinCommonInstructions::Standard",
-                      "conditions": [
-                        {
-                          "type": {
-                            "value": "NumberObjectVariable"
-                          },
-                          "parameters": [
-                            "biskuit",
-                            "position_state",
-                            "=",
-                            "1"
-                          ]
-                        }
-                      ],
-                      "actions": [
-                        {
-                          "type": {
-                            "value": "Tween::TweenBehavior::AddObjectAngleTween2"
-                          },
-                          "parameters": [
-                            "tutup_toples",
-                            "Tween",
-                            "\"go open\"",
-                            "60",
-                            "\"linear\"",
-                            "0.2",
-                            ""
-                          ]
-                        },
-                        {
-                          "type": {
-                            "value": "Tween::TweenBehavior::AddObjectPositionTween2"
-                          },
-                          "parameters": [
-                            "tutup_toples",
-                            "Tween",
-                            "\"go open 2\"",
-                            "tutup_toples.X() +75",
-                            "tutup_toples.Y() -75",
-                            "\"linear\"",
-                            "0.2",
-                            ""
-                          ]
-                        },
-                        {
-                          "type": {
-                            "value": "Wait"
-                          },
-                          "parameters": [
-                            "1"
-                          ]
-                        },
-                        {
-                          "type": {
-                            "value": "Tween::TweenBehavior::AddObjectPositionYTween2"
-                          },
-                          "parameters": [
-                            "biskuit",
-                            "Tween",
-                            "\"go up for look back\"",
-                            "234",
-                            "\"linear\"",
-                            "0.2",
-                            ""
-                          ]
-                        },
-                        {
-                          "type": {
-                            "value": "Tween::TweenBehavior::AddObjectScaleTween3"
-                          },
-                          "parameters": [
-                            "biskuit",
-                            "Tween",
-                            "\"go bigger\"",
-                            "1",
-                            "\"linear\"",
-                            "0.5",
-                            "",
-                            "yes"
-                          ]
-                        },
-                        {
-                          "type": {
-                            "value": "Wait"
-                          },
-                          "parameters": [
-                            "3"
-                          ]
-                        },
-                        {
-                          "type": {
-                            "value": "Tween::TweenBehavior::AddObjectPositionYTween2"
-                          },
-                          "parameters": [
-                            "biskuit",
-                            "Tween",
-                            "\"go down\"",
-                            "720",
-                            "\"linear\"",
-                            "0.5",
-                            ""
-                          ]
-                        },
-                        {
-                          "type": {
-                            "value": "Tween::TweenBehavior::AddObjectScaleTween3"
-                          },
-                          "parameters": [
-                            "biskuit",
-                            "Tween",
-                            "\"go shrink\"",
-                            "0.5",
-                            "\"linear\"",
-                            "0.5",
-                            "",
-                            "yes"
-                          ]
-                        },
-                        {
-                          "type": {
-                            "value": "Wait"
-                          },
-                          "parameters": [
-                            "0.5"
-                          ]
-                        },
-                        {
-                          "type": {
-                            "value": "Tween::TweenBehavior::AddObjectAngleTween2"
-                          },
-                          "parameters": [
-                            "tutup_toples",
-                            "Tween",
-                            "\"go close\"",
-                            "0",
-                            "\"linear\"",
-                            "0.2",
-                            ""
-                          ]
-                        },
-                        {
-                          "type": {
-                            "value": "Tween::TweenBehavior::AddObjectPositionTween2"
-                          },
-                          "parameters": [
-                            "tutup_toples",
-                            "Tween",
-                            "\"go close 2\"",
-                            "tutup_toples.X() -75",
-                            "tutup_toples.Y() +75",
-                            "\"linear\"",
-                            "0.2",
-                            ""
-                          ]
-                        },
-                        {
-                          "type": {
-                            "value": "Wait"
-                          },
-                          "parameters": [
-                            "1"
-                          ]
-                        }
-                      ],
-                      "events": [
-                        {
-                          "type": "BuiltinCommonInstructions::Standard",
-                          "conditions": [
-                            {
-                              "type": {
-                                "value": "AjoutObjConcern"
-                              },
-                              "parameters": [
-                                "",
-                                "biskuit"
-                              ]
-                            }
-                          ],
-                          "actions": [],
-                          "events": [
-                            {
-                              "type": "BuiltinCommonInstructions::Standard",
-                              "conditions": [
-                                {
-                                  "type": {
-                                    "value": "NumberObjectVariable"
-                                  },
-                                  "parameters": [
-                                    "biskuit",
-                                    "id",
-                                    "=",
-                                    "biskuit_counter -1"
-                                  ]
-                                }
-                              ],
-                              "actions": [
-                                {
-                                  "type": {
-                                    "value": "Tween::TweenBehavior::AddObjectPositionTween2"
-                                  },
-                                  "parameters": [
-                                    "biskuit",
-                                    "Tween",
-                                    "\"go left after look back\"",
-                                    "500",
-                                    "235",
-                                    "\"linear\"",
-                                    "0.5",
-                                    ""
-                                  ]
-                                }
-                              ]
-                            }
-                          ]
-                        }
-                      ]
-                    },
-                    {
-                      "type": "BuiltinCommonInstructions::Standard",
-                      "conditions": [
-                        {
-                          "type": {
-                            "value": "NumberObjectVariable"
-                          },
-                          "parameters": [
-                            "biskuit",
-                            "position_state",
-                            "=",
-                            "2"
-                          ]
-                        }
-                      ],
-                      "actions": [
-                        {
-                          "type": {
-                            "value": "Tween::TweenBehavior::AddObjectPositionYTween2"
-                          },
-                          "parameters": [
-                            "toples_salah_group",
-                            "Tween",
-                            "\"go up\"",
-                            "toples_salah_group.Y() - 569",
-                            "\"easeOutCubic\"",
-                            "0.5",
-                            ""
-                          ]
-                        },
-                        {
-                          "type": {
-                            "value": "Wait"
-                          },
-                          "parameters": [
-                            "0.5"
-                          ]
-                        },
-                        {
-                          "type": {
-                            "value": "Tween::TweenBehavior::AddObjectAngleTween2"
-                          },
-                          "parameters": [
-                            "tutup_toples_salah",
-                            "Tween",
-                            "\"go open\"",
-                            "60",
-                            "\"linear\"",
-                            "0.2",
-                            ""
-                          ]
-                        },
-                        {
-                          "type": {
-                            "value": "Tween::TweenBehavior::AddObjectPositionTween2"
-                          },
-                          "parameters": [
-                            "tutup_toples_salah",
-                            "Tween",
-                            "\"go open 2\"",
-                            "tutup_toples_salah.X() +75",
-                            "tutup_toples_salah.Y() -75",
-                            "\"linear\"",
-                            "0.2",
-                            ""
-                          ]
-                        },
-                        {
-                          "type": {
-                            "value": "Tween::TweenBehavior::AddObjectPositionTween2"
-                          },
-                          "parameters": [
-                            "biskuit",
-                            "Tween",
-                            "\"go up\"",
-                            "1010",
-                            "500",
-                            "\"easeInQuad\"",
-                            "0.2",
-                            ""
-                          ]
-                        },
-                        {
-                          "type": {
-                            "value": "Wait"
-                          },
-                          "parameters": [
-                            "0.5"
-                          ]
-                        },
-                        {
-                          "type": {
-                            "value": "Tween::TweenBehavior::AddObjectPositionTween2"
-                          },
-                          "parameters": [
-                            "biskuit",
-                            "Tween",
-                            "\"go up for look back\"",
-                            "492",
-                            "234",
-                            "\"linear\"",
-                            "0.5",
-                            ""
-                          ]
-                        },
-                        {
-                          "type": {
-                            "value": "Tween::TweenBehavior::AddObjectScaleTween3"
-                          },
-                          "parameters": [
-                            "biskuit",
-                            "Tween",
-                            "\"go bigger\"",
-                            "1",
-                            "\"linear\"",
-                            "0.5",
-                            "",
-                            "yes"
-                          ]
-                        },
-                        {
-                          "type": {
-                            "value": "Wait"
-                          },
-                          "parameters": [
-                            "4.5"
-                          ]
-                        },
-                        {
-                          "type": {
-                            "value": "Tween::TweenBehavior::AddObjectPositionTween2"
-                          },
-                          "parameters": [
-                            "biskuit",
-                            "Tween",
-                            "\"go down\"",
-                            "1010",
-                            "500",
-                            "\"easeInQuad\"",
-                            "0.2",
-                            ""
-                          ]
-                        },
-                        {
-                          "type": {
-                            "value": "Tween::TweenBehavior::AddObjectScaleTween3"
-                          },
-                          "parameters": [
-                            "biskuit",
-                            "Tween",
-                            "\"go shrink\"",
-                            "0.5",
-                            "\"linear\"",
-                            "0.2",
-                            "",
-                            "yes"
-                          ]
-                        },
-                        {
-                          "type": {
-                            "value": "Wait"
-                          },
-                          "parameters": [
-                            "1"
-                          ]
-                        },
-                        {
-                          "type": {
-                            "value": "Tween::TweenBehavior::AddObjectPositionTween2"
-                          },
-                          "parameters": [
-                            "biskuit",
-                            "Tween",
-                            "\"go down\"",
-                            "1010",
-                            "650",
-                            "\"easeInQuad\"",
-                            "0.5",
-                            ""
-                          ]
-                        },
-                        {
-                          "type": {
-                            "value": "Wait"
-                          },
-                          "parameters": [
-                            "0.5"
-                          ]
-                        },
-                        {
-                          "type": {
-                            "value": "Tween::TweenBehavior::AddObjectAngleTween2"
-                          },
-                          "parameters": [
-                            "tutup_toples_salah",
-                            "Tween",
-                            "\"go close\"",
-                            "0",
-                            "\"linear\"",
-                            "0.2",
-                            ""
-                          ]
-                        },
-                        {
-                          "type": {
-                            "value": "Tween::TweenBehavior::AddObjectPositionTween2"
-                          },
-                          "parameters": [
-                            "tutup_toples_salah",
-                            "Tween",
-                            "\"go close 2\"",
-                            "tutup_toples_salah.X() -75",
-                            "tutup_toples_salah.Y() +75",
-                            "\"linear\"",
-                            "0.2",
-                            ""
-                          ]
-                        },
-                        {
-                          "type": {
-                            "value": "Wait"
-                          },
-                          "parameters": [
-                            "1.3"
-                          ]
-                        },
-                        {
-                          "type": {
-                            "value": "Tween::TweenBehavior::AddObjectPositionYTween2"
-                          },
-                          "parameters": [
-                            "biskuit",
-                            "Tween",
-                            "\"go down after look back\"",
-                            "biskuit.Y() + 569",
-                            "\"easeOutCubic\"",
-                            "0.5",
-                            ""
-                          ]
-                        },
-                        {
-                          "type": {
-                            "value": "Tween::TweenBehavior::AddObjectPositionYTween2"
-                          },
-                          "parameters": [
-                            "toples_salah_group",
-                            "Tween",
-                            "\"go down after look back\"",
-                            "toples_salah_group.Y() + 569",
-                            "\"easeOutCubic\"",
-                            "0.5",
-                            ""
-                          ]
-                        },
-                        {
-                          "type": {
-                            "value": "Wait"
-                          },
-                          "parameters": [
-                            "0.5"
-                          ]
-                        }
-                      ],
-                      "events": [
-                        {
-                          "type": "BuiltinCommonInstructions::Standard",
-                          "conditions": [
-                            {
-                              "type": {
-                                "value": "AjoutObjConcern"
-                              },
-                              "parameters": [
-                                "",
-                                "biskuit"
-                              ]
-                            }
-                          ],
-                          "actions": [],
-                          "events": [
-                            {
-                              "type": "BuiltinCommonInstructions::Standard",
-                              "conditions": [
-                                {
-                                  "type": {
-                                    "value": "NumberObjectVariable"
-                                  },
-                                  "parameters": [
-                                    "biskuit",
-                                    "id",
-                                    "=",
-                                    "biskuit_counter -1"
-                                  ]
-                                }
-                              ],
-                              "actions": [
-                                {
-                                  "type": {
-                                    "value": "Tween::TweenBehavior::AddObjectPositionTween2"
-                                  },
-                                  "parameters": [
-                                    "biskuit",
-                                    "Tween",
-                                    "\"go left after look back\"",
-                                    "500",
-                                    "235",
-                                    "\"linear\"",
-                                    "0.5",
-                                    ""
-                                  ]
-                                }
-                              ]
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "folded": true,
-      "type": "BuiltinCommonInstructions::Standard",
-      "conditions": [
-        {
-          "type": {
-            "value": "NumberObjectVariable"
-          },
-          "parameters": [
-            "biskuit",
-            "id",
-            "=",
-            "biskuit_counter - 1"
-          ]
-        }
-      ],
-      "actions": [],
-      "events": [
-        {
-          "type": "BuiltinCommonInstructions::Standard",
-          "conditions": [
-            {
-              "type": {
-                "value": "Tween::HasFinished"
-              },
-              "parameters": [
-                "biskuit",
-                "Tween",
-                "\"go left after look back\""
-              ]
-            }
-          ],
-          "actions": [],
-          "events": [
-            {
-              "type": "BuiltinCommonInstructions::Standard",
-              "conditions": [
-                {
-                  "type": {
-                    "value": "AjoutObjConcern"
-                  },
-                  "parameters": [
-                    "melanjutkan_button",
-                    "melanjutkan_button"
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "AjoutObjConcern"
-                  },
-                  "parameters": [
-                    "melanjutkan_button",
-                    "confirm_button"
-                  ]
-                }
-              ],
-              "actions": [],
-              "events": [
-                {
-                  "type": "BuiltinCommonInstructions::Standard",
-                  "conditions": [
-                    {
-                      "type": {
-                        "value": "BooleanVariable"
-                      },
-                      "parameters": [
-                        "is_setting_show",
-                        "=",
-                        ""
-                      ]
-                    }
-                  ],
-                  "actions": [
-                    {
-                      "type": {
-                        "value": "ActivateBehavior"
-                      },
-                      "parameters": [
-                        "confirm_button",
-                        "ButtonFSM",
-                        "yes"
-                      ]
-                    },
-                    {
-                      "type": {
-                        "value": "ActivateBehavior"
-                      },
-                      "parameters": [
-                        "melanjutkan_button",
-                        "ButtonFSM",
-                        "yes"
-                      ]
-                    },
-                    {
-                      "type": {
-                        "value": "Tween::TweenBehavior::AddObjectOpacityTween2"
-                      },
-                      "parameters": [
-                        "confirm_button",
-                        "Tween",
-                        "\"go show for after look back\"",
-                        "255",
-                        "\"linear\"",
-                        "0.5",
-                        ""
-                      ]
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        }
-      ]
     },
     {
       "type": "BuiltinCommonInstructions::Link",
@@ -3745,151 +3688,8 @@
     },
     {
       "type": "BuiltinCommonInstructions::Standard",
-      "conditions": [
-        {
-          "type": {
-            "value": "Tween::HasFinished"
-          },
-          "parameters": [
-            "biskuit",
-            "Tween",
-            "\"go left after look back\""
-          ]
-        },
-        {
-          "type": {
-            "value": "BuiltinCommonInstructions::Once"
-          },
-          "parameters": []
-        }
-      ],
-      "actions": [
-        {
-          "type": {
-            "value": "SetBooleanVariable"
-          },
-          "parameters": [
-            "is_during_look_back",
-            "False",
-            ""
-          ]
-        }
-      ]
-    },
-    {
-      "disabled": true,
-      "type": "BuiltinCommonInstructions::Standard",
-      "conditions": [
-        {
-          "type": {
-            "value": "BooleanVariable"
-          },
-          "parameters": [
-            "is_during_look_back",
-            "True",
-            ""
-          ]
-        },
-        {
-          "type": {
-            "value": "AjoutObjConcern"
-          },
-          "parameters": [
-            "",
-            "confirm_button"
-          ]
-        },
-        {
-          "type": {
-            "value": "BuiltinCommonInstructions::Once"
-          },
-          "parameters": []
-        }
-      ],
-      "actions": [
-        {
-          "type": {
-            "value": "ActivateBehavior"
-          },
-          "parameters": [
-            "confirm_button",
-            "ButtonFSM",
-            "no"
-          ]
-        },
-        {
-          "type": {
-            "value": "DebuggerTools::ConsoleLog"
-          },
-          "parameters": [
-            "\"button confirm deactivate\"",
-            "\"info\"",
-            ""
-          ]
-        }
-      ]
-    },
-    {
-      "disabled": true,
-      "type": "BuiltinCommonInstructions::Standard",
-      "conditions": [
-        {
-          "type": {
-            "value": "BooleanVariable"
-          },
-          "parameters": [
-            "is_during_look_back",
-            "False",
-            ""
-          ]
-        },
-        {
-          "type": {
-            "value": "AjoutObjConcern"
-          },
-          "parameters": [
-            "",
-            "confirm_button"
-          ]
-        },
-        {
-          "type": {
-            "inverted": true,
-            "value": "DepartScene"
-          },
-          "parameters": [
-            ""
-          ]
-        },
-        {
-          "type": {
-            "value": "BuiltinCommonInstructions::Once"
-          },
-          "parameters": []
-        }
-      ],
-      "actions": [
-        {
-          "type": {
-            "value": "ActivateBehavior"
-          },
-          "parameters": [
-            "confirm_button",
-            "ButtonFSM",
-            "yes"
-          ]
-        },
-        {
-          "type": {
-            "value": "DebuggerTools::ConsoleLog"
-          },
-          "parameters": [
-            "\"button confirm activate\"",
-            "\"info\"",
-            ""
-          ]
-        }
-      ]
+      "conditions": [],
+      "actions": []
     }
   ]
 }
