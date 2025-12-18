@@ -111,6 +111,16 @@
             "ButtonFSM",
             ""
           ]
+        },
+        {
+          "type": {
+            "value": "ActivateBehavior"
+          },
+          "parameters": [
+            "home_button",
+            "ButtonFSM",
+            ""
+          ]
         }
       ]
     },
@@ -301,6 +311,16 @@
             "value": "ActivateBehavior"
           },
           "parameters": [
+            "home_button",
+            "ButtonFSM",
+            "yes"
+          ]
+        },
+        {
+          "type": {
+            "value": "ActivateBehavior"
+          },
+          "parameters": [
             "button_ok",
             "ButtonFSM",
             "yes"
@@ -361,6 +381,159 @@
             "\"easeInQuad\"",
             "1.5",
             ""
+          ]
+        },
+        {
+          "type": {
+            "value": "EnableLayerEffect"
+          },
+          "parameters": [
+            "",
+            "",
+            "\"blur\"",
+            ""
+          ]
+        },
+        {
+          "type": {
+            "value": "EnableLayerEffect"
+          },
+          "parameters": [
+            "",
+            "\"toples_bawah\"",
+            "\"blur\"",
+            ""
+          ]
+        },
+        {
+          "type": {
+            "value": "EnableLayerEffect"
+          },
+          "parameters": [
+            "",
+            "\"biskuit\"",
+            "\"blur\"",
+            ""
+          ]
+        },
+        {
+          "type": {
+            "value": "EnableLayerEffect"
+          },
+          "parameters": [
+            "",
+            "\"toples_atas\"",
+            "\"blur\"",
+            ""
+          ]
+        },
+        {
+          "type": {
+            "value": "EnableLayerEffect"
+          },
+          "parameters": [
+            "",
+            "\"tutup_toples\"",
+            "\"blur\"",
+            ""
+          ]
+        },
+        {
+          "type": {
+            "value": "EnableLayerEffect"
+          },
+          "parameters": [
+            "",
+            "\"benar\"",
+            "\"blur\"",
+            ""
+          ]
+        },
+        {
+          "type": {
+            "value": "ActivateBehavior"
+          },
+          "parameters": [
+            "button_ok",
+            "ButtonFSM",
+            ""
+          ]
+        },
+        {
+          "type": {
+            "value": "ActivateBehavior"
+          },
+          "parameters": [
+            "home_button",
+            "ButtonFSM",
+            ""
+          ]
+        },
+        {
+          "type": {
+            "value": "PlaySoundCanal"
+          },
+          "parameters": [
+            "",
+            "sound\\SFX\\button ok di setting & credit- pola biskuit.wav",
+            "0",
+            "",
+            "setting.sound",
+            "1"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": {
+            "value": "ButtonStates::ButtonFSM::IsClicked"
+          },
+          "parameters": [
+            "home_button",
+            "ButtonFSM",
+            ""
+          ]
+        }
+      ],
+      "actions": [
+        {
+          "type": {
+            "value": "Tween::TweenBehavior::AddObjectPositionXTween2"
+          },
+          "parameters": [
+            "setting_group",
+            "Tween",
+            "\"go right for home\"",
+            "setting_group.X() + 1280",
+            "\"easeInQuad\"",
+            "1.5",
+            ""
+          ]
+        },
+        {
+          "type": {
+            "value": "ActivateBehavior"
+          },
+          "parameters": [
+            "home_button",
+            "ButtonFSM",
+            ""
+          ]
+        },
+        {
+          "type": {
+            "value": "PlaySoundCanal"
+          },
+          "parameters": [
+            "",
+            "sound\\SFX\\button ok di setting & credit- pola biskuit.wav",
+            "0",
+            "",
+            "setting.sound",
+            "1"
           ]
         },
         {
@@ -438,18 +611,48 @@
             "\"blur\"",
             ""
           ]
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": {
+            "value": "Tween::HasFinished"
+          },
+          "parameters": [
+            "setting_group",
+            "Tween",
+            "\"go right for home\""
+          ]
         },
         {
           "type": {
-            "value": "PlaySoundCanal"
+            "value": "BuiltinCommonInstructions::Once"
+          },
+          "parameters": []
+        }
+      ],
+      "actions": [
+        {
+          "type": {
+            "value": "Scene"
           },
           "parameters": [
             "",
-            "sound\\SFX\\button ok di setting & credit- pola biskuit.wav",
-            "0",
-            "",
-            "setting.sound",
-            "1"
+            "\"loading_scene\"",
+            ""
+          ]
+        },
+        {
+          "type": {
+            "value": "SetStringVariable"
+          },
+          "parameters": [
+            "loading_scene",
+            "=",
+            "\"main_title\""
           ]
         }
       ]
@@ -475,17 +678,6 @@
         }
       ],
       "actions": [
-        {
-          "type": {
-            "value": "OpacityCapability::OpacityBehavior::SetValue"
-          },
-          "parameters": [
-            "black_blur",
-            "Opacity",
-            "=",
-            "0"
-          ]
-        },
         {
           "type": {
             "value": "ActivateBehavior"

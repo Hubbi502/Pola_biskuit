@@ -9,7 +9,7 @@
   "name": "ButtonStates",
   "previewIconUrl": "https://asset-resources.gdevelop.io/public-resources/Icons/753a9a794bd885058159b7509f06f5a8f67f72decfccb9a1b0efee26f41c3c4c_gesture-tap-button.svg",
   "shortDescription": "Use any object as a button and change appearance according to user interactions.",
-  "version": "1.3.1",
+  "version": "1.4.1",
   "description": [
     "Use the \"Button states\" behavior to track user interactions with an object, including:",
     "",
@@ -2501,6 +2501,103 @@
                 }
               ],
               "parameters": []
+            },
+            {
+              "colorB": 228,
+              "colorG": 176,
+              "colorR": 74,
+              "creationTime": 0,
+              "name": "Toggle effect",
+              "source": "",
+              "type": "BuiltinCommonInstructions::Group",
+              "events": [
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "value": "BooleanVariable"
+                      },
+                      "parameters": [
+                        "ShouldDisableEffectInIdle",
+                        "True",
+                        ""
+                      ]
+                    }
+                  ],
+                  "actions": [],
+                  "events": [
+                    {
+                      "type": "BuiltinCommonInstructions::Standard",
+                      "conditions": [
+                        {
+                          "type": {
+                            "value": "ButtonStates::ButtonFSM::IsIdle"
+                          },
+                          "parameters": [
+                            "Object",
+                            "ButtonFSM",
+                            ""
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "StringVariable"
+                          },
+                          "parameters": [
+                            "TweenState",
+                            "=",
+                            "\"NoTween\""
+                          ]
+                        }
+                      ],
+                      "actions": [
+                        {
+                          "type": {
+                            "value": "EffectCapability::EffectBehavior::EnableEffect"
+                          },
+                          "parameters": [
+                            "Object",
+                            "Effect",
+                            "EffectName",
+                            "no"
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "BuiltinCommonInstructions::Standard",
+                      "conditions": [
+                        {
+                          "type": {
+                            "inverted": true,
+                            "value": "ButtonStates::ButtonFSM::IsIdle"
+                          },
+                          "parameters": [
+                            "Object",
+                            "ButtonFSM",
+                            ""
+                          ]
+                        }
+                      ],
+                      "actions": [
+                        {
+                          "type": {
+                            "value": "EffectCapability::EffectBehavior::EnableEffect"
+                          },
+                          "parameters": [
+                            "Object",
+                            "Effect",
+                            "EffectName",
+                            "yes"
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "parameters": []
             }
           ],
           "parameters": [
@@ -3893,6 +3990,13 @@
           "label": "Fade-out duration",
           "group": "Speed",
           "name": "FadeOutDuration"
+        },
+        {
+          "value": "",
+          "type": "Boolean",
+          "label": "Disable the effect in idle state",
+          "advanced": true,
+          "name": "ShouldDisableEffectInIdle"
         },
         {
           "value": "Idle",
