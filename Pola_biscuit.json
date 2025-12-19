@@ -70,7 +70,7 @@
       "progressBarMaxWidth": 200,
       "progressBarMinWidth": 40,
       "progressBarWidthPercent": 30,
-      "showGDevelopSplash": true,
+      "showGDevelopSplash": false,
       "showProgressBar": true
     },
     "watermark": {
@@ -1597,6 +1597,7 @@
   ],
   "variables": [
     {
+      "folded": true,
       "name": "setting",
       "type": "structure",
       "children": [
@@ -1626,6 +1627,11 @@
       "name": "scene_after_show_title",
       "type": "number",
       "value": 0
+    },
+    {
+      "name": "scene_after_title",
+      "type": "string",
+      "value": ""
     }
   ],
   "layouts": [
@@ -1714,6 +1720,10 @@
     {
       "__REFERENCE_TO_SPLIT_OBJECT": true,
       "referenceTo": "/externalLayouts/setting"
+    },
+    {
+      "__REFERENCE_TO_SPLIT_OBJECT": true,
+      "referenceTo": "/externalLayouts/setting_main"
     },
     {
       "__REFERENCE_TO_SPLIT_OBJECT": true,
